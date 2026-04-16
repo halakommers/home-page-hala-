@@ -4,6 +4,17 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+### هلا كوميرس Landing Page (`artifacts/hala-landing`)
+- **Type**: react-vite, frontend-only (no backend)
+- **Preview path**: `/` (root)
+- **Language**: Arabic RTL
+- **Brand**: Deep purple (#2D2669) + burnt orange (#E85D1F)
+- **Font**: Cairo (Arabic) + Inter (English/numbers)
+- **Sections**: 13 sections — Navbar, Hero, Trust Bar, Why Hala, Services Grid (6), For Whom (5 audiences), Order Journey timeline (6 steps), Stats, Growth Support, Testimonials, FAQ (9 items), Final CTA, Footer
+- **Stack**: React, Vite, Tailwind CSS, Framer Motion, Radix UI accordion, lucide-react, react-icons
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces

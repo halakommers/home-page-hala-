@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "هلا كوميرس — Landing Page"
+version = "1.0.0"
+id = "artifacts/hala-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25468
+
+[services.development]
+run = "pnpm --filter @workspace/hala-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hala-landing", "run", "build" ]
+publicDir = "artifacts/hala-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25468"
+BASE_PATH = "/"

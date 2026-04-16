@@ -1,0 +1,311 @@
+Design a modern, professional, conversion-focused multi-section landing page in Arabic (RTL) for "هلا كوميرس" (Hala Kommers) — a full-service e-commerce fulfillment and operations partner for sellers across Saudi Arabia and the Gulf (GCC countries). The company handles sourcing, warehousing, order confirmation, shipping, and COD collection — acting as an all-in-one operational partner for online merchants.
+
+═══════════════════════════════════════════════════
+🎯 DESIGN REFERENCE — CRITICAL
+═══════════════════════════════════════════════════
+
+The entire visual language, section structure, spacing, illustration style, and premium feel must closely match wafeq.com/ar-eg. Study these characteristics from Wafeq and replicate them with Hala's own brand colors:
+
+- Clean, premium B2B SaaS aesthetic — "trusted enterprise" not "flashy startup"
+- Generous white space between sections (80-120px vertical padding)
+- Soft shadows on cards (shadow-sm default, shadow-md on hover)
+- Rounded corners: 12-16px on cards, 10-12px on buttons, 8px on small elements
+- Alternating white and subtle tinted backgrounds between sections
+- Custom illustrations (isometric or flat style) — NO stock photos
+- Heavy use of subtle decorative shapes and patterns in the background
+- Typography: large, bold, confident headlines with breathing room
+- Two-column hero with text on the right (RTL) and illustration on the left
+
+═══════════════════════════════════════════════════
+🎨 BRAND COLORS — USE EXACTLY
+═══════════════════════════════════════════════════
+
+PRIMARY PURPLE:    #2D2669  (main CTAs, headlines, links, hero accents)
+PRIMARY DEEP:      #1E1A4D  (dark sections, footer background)
+ACCENT ORANGE:     #E85D1F  (secondary CTAs, highlighted numbers, icons, dots)
+ACCENT LIGHT:      #FFE8D9  (soft badge backgrounds)
+TEXT DARK:         #1A1A2E  (main headings)
+TEXT BODY:         #4A4A5E  (paragraphs)
+TEXT MUTED:        #7A7A8C  (captions, meta)
+BG WHITE:          #FFFFFF  (primary background)
+BG SOFT:           #F8F6FC  (alternating section backgrounds with a subtle purple tint)
+BORDER:            #E8E5F2  (card borders, dividers)
+
+The color combination of deep purple + burnt orange is unique — it's Hala's signature. Use orange sparingly as accent only (5-10% of the page), with purple dominant and white/soft backgrounds as canvas.
+
+═══════════════════════════════════════════════════
+🔤 TYPOGRAPHY
+═══════════════════════════════════════════════════
+
+- Primary Arabic font: Cairo (weights: 800, 700, 500, 400)
+- Fallback: IBM Plex Sans Arabic
+- English/numbers: Inter
+- H1: 56-64px desktop, 36-40px mobile, weight 800, line-height 1.15
+- H2: 40-48px desktop, 28-32px mobile, weight 700
+- H3: 24-28px, weight 700
+- Body: 16-18px, weight 400, line-height 1.7 (Arabic needs more line height)
+- Small/caption: 14px, weight 500, color muted
+
+═══════════════════════════════════════════════════
+📐 LAYOUT DIRECTION
+═══════════════════════════════════════════════════
+
+- Direction: RTL (right-to-left)
+- Logo placement: top-right
+- Nav links: center-right area
+- CTAs: top-left
+- Max content width: 1280px
+- Section padding: 96-120px top/bottom on desktop
+
+═══════════════════════════════════════════════════
+📄 PAGE STRUCTURE — 13 SECTIONS (TOP TO BOTTOM)
+═══════════════════════════════════════════════════
+
+━━━ 1. STICKY TOP NAVIGATION ━━━
+
+White background with subtle bottom border (#E8E5F2). Slight shadow when scrolled.
+- Right side: Hala Kommers logo (use provided logo — purple "Hala" with orange dot + orange "kommers" subtitle)
+- Center-right: Nav links in purple (#2D2669), medium weight, 15px: "الخدمات" / "لمن هلا" / "كيف نعمل" / "الأسعار" / "المدونة"
+- Left side: Outline button "تسجيل الدخول" (purple border, purple text) + Primary filled button "ابدأ مع هلا" (solid #2D2669 background, white text, 10px radius, 12px 24px padding)
+- Mobile: hamburger menu on the left, logo on the right
+
+━━━ 2. HERO SECTION (MOST IMPORTANT) ━━━
+
+Two-column layout, white background with a very subtle purple gradient or decorative dots pattern behind.
+
+RIGHT COLUMN (text side, 50% width):
+- Small eyebrow label in orange (#E85D1F), uppercase, 14px, weight 600, with a small orange dot before it:
+  "● تشغيل متكامل للتجارة الإلكترونية في الخليج"
+- H1 in dark (#1A1A2E), massive 60px, weight 800, line-height 1.15:
+  "منظومة تشغيل متكاملة لتجارتك في الخليج"
+  (The word "متكاملة" should be highlighted with a hand-drawn orange underline or marker-style highlight in #E85D1F)
+- Subheadline in body color (#4A4A5E), 20px, weight 400, line-height 1.6, max-width 540px:
+  "توريد، تخزين، تأكيد طلبات، شحن، وتحصيل — كل ما تحتاجه لتنمو بثقة في السعودية والخليج، تحت سقف شريك واحد."
+- Two buttons in a row (with 12px gap):
+  * Primary CTA: "ابدأ مع هلا مجاناً" (#2D2669 bg, white text, 16px, weight 600, 14px 28px padding, 10px radius, arrow icon ←)
+  * Secondary CTA: "احجز استشارة" (white bg, purple border 1.5px, purple text)
+- Micro-text below buttons, muted color, 13px: "استشارة مجانية • بدون التزام • رد خلال 24 ساعة"
+- Trust strip below (after 32px gap): star rating "⭐⭐⭐⭐⭐ 4.9" + text "متوسط تقييم البائعين الذين انضموا لنا"
+
+LEFT COLUMN (illustration side, 50% width):
+A modern isometric illustration in Hala's brand colors showing:
+- A stylized dashboard/interface mockup at the front (showing order stats, map of Gulf region)
+- A warehouse building in the background
+- A delivery truck in mid-scene
+- A phone showing a WhatsApp order confirmation
+- All elements floating with subtle shadow, connected visually
+- Use #2D2669 as dominant color, with #E85D1F accents on key elements (buttons, alerts, icons)
+- Background: soft circular or blob shapes in very light purple (#F8F6FC)
+- Style: similar to Wafeq's illustrations — modern, slightly playful, clean vector
+
+━━━ 3. LOGOS / TRUST BAR ━━━
+
+Subtle section, very short (60-80px height), soft background (#F8F6FC).
+Centered text in muted color, 14px: "نخدم البائعين في:"
+Below: horizontal row of country names in a clean format — use text + flag emoji or minimal flag icons, all in grayscale/muted purple:
+🇸🇦 السعودية   •   🇦🇪 الإمارات   •   🇰🇼 الكويت   •   🇶🇦 قطر   •   🇧🇭 البحرين   •   🇴🇲 عُمان
+Separated by small dots or pipes in muted color.
+
+━━━ 4. "WHY HALA" SECTION ━━━
+
+White background. Centered content.
+- Eyebrow in orange: "هلا أكثر من شركة شحن"
+- Large H2 in dark: "شريكك التشغيلي الكامل في الخليج"
+- Supporting paragraph, centered, max-width 720px, body color, 18px:
+  "نحن لا نشحن منتجاتك فقط — بل ندير معك المنظومة كاملة: من المصنع في الصين، إلى مستودعاتنا في السعودية، إلى يد عميلك، حتى تحصيل المبلغ في حسابك. كل ذلك في تدفق واحد منظم، ولوحة تحكم واحدة."
+- No image needed, but add a subtle decorative element (dots pattern or geometric shape) on the sides in light purple
+
+━━━ 5. SERVICES GRID (6 CARDS) ━━━
+
+Soft background (#F8F6FC). 
+- Section header centered:
+  * Eyebrow orange: "خدماتنا المتكاملة"
+  * H2: "ست خدمات. شريك واحد. تشغيل بلا تعقيد."
+  * Subheadline: "بدلاً من إدارة خمس شركات مختلفة، تدير علاقة واحدة فقط."
+
+- Below: 3-column × 2-row grid of service cards (stacks to 1 column on mobile).
+
+EACH CARD:
+- White background, 16px rounded corners, 1px border (#E8E5F2), subtle shadow
+- 32px padding
+- Top-right: circular icon container (64×64px) with soft orange background (#FFE8D9) and icon in orange (#E85D1F) — OR alternating cards with soft purple background (#F8F6FC) and purple icon
+- Bold title below icon (20px, weight 700, dark color)
+- Description (15px, body color, line-height 1.6, 3-4 lines max)
+- Hover state: slight lift (translateY -4px), shadow grows, orange accent line appears at top of card
+
+THE 6 SERVICES:
+1. 📦 "التوريد والاستيراد" — "نوفّر لك منتجاتك من المصدر بأسعار تنافسية، ونتولى الجمارك والشحن الدولي حتى مستودعاتنا."
+2. 🏭 "التخزين والتغليف" — "مستودعات منظمة في قلب السوق، مع تغليف احترافي يحمي منتجك ويعكس هوية براندك."
+3. 📞 "تأكيد الطلبات" — "فريق سعودي/خليجي يتحدث لهجة عميلك، يؤكد الطلب قبل الشحن، ويرفع نسبة التسليم الفعلي."
+4. 🚚 "الشحن داخل الخليج" — "شراكات مع كبرى شركات الشحن، مع مرونة اختيار الأنسب لكل طلب وتتبّع لحظي للعميل."
+5. 💰 "تحصيل الأموال (COD)" — "نتولى التحصيل من العميل، ونحوّل لك مستحقاتك في مواعيد ثابتة وواضحة."
+6. 📊 "لوحة تحكم وتقارير" — "ترى كل طلب، ومخزونك، ومعدل التحصيل، وأداء كل منتج — في مكان واحد، بالعربي."
+
+━━━ 6. "FOR WHOM" SECTION ━━━
+
+White background.
+- Centered eyebrow orange: "لمن هلا؟"
+- H2 dark: "سواء كنت تبدأ من الصفر أو تتوسّع — هلا مبنية لك"
+
+- Below: horizontal row of 5 audience cards (scrolls on mobile).
+EACH CARD: 
+- Smaller than service cards, 240×280px
+- Soft purple background (#F8F6FC), 16px radius
+- Top: small illustration/avatar (flat style, brand colors)
+- Center: bold title
+- Bottom: 1-line description in muted text
+
+TYPES:
+1. "متاجر Shopify / Salla / Zid" — "تركّز على البيع، نحن ننفّذ"
+2. "المسوّقون والـ Dropshippers" — "مخزون جاهز، تنفيذ سريع، تحصيل منظم"
+3. "البراندات الناشئة" — "تجربة عميل قوية من أول طلب"
+4. "المتاجر بمنتج واحد" — "تشغيل لا يأكل هامش ربحك"
+5. "الـ Affiliates ومنشئو المحتوى" — "لديك جمهور، نحن نتولى الباقي"
+
+━━━ 7. ORDER JOURNEY (TIMELINE) ━━━
+
+Soft background (#F8F6FC).
+- Eyebrow orange: "رحلة الطلب"
+- H2 dark: "من الصين إلى يد عميلك — في 6 خطوات منظمة"
+- Short subheadline
+
+- Below: horizontal timeline with 6 steps (becomes vertical on mobile)
+- Steps are connected by a dotted line in orange (#E85D1F)
+- Each step: circular numbered badge (alternating purple/orange, 56×56px, white number inside), bold title below, 1-line description
+- Small icon next to each step title
+
+STEPS:
+1. التوريد
+2. التخزين
+3. تأكيد الطلب
+4. التغليف والتجهيز
+5. الشحن والتسليم
+6. التحصيل والتسوية
+
+━━━ 8. STATS / NUMBERS SECTION ━━━
+
+Full-width deep purple background (#1E1A4D) with a subtle geometric pattern overlay in 5% white opacity.
+- Small eyebrow centered in orange (#E85D1F): "أرقام تتحدث"
+- H2 in white: "لماذا يثق بنا البائعون في الخليج؟"
+
+- Below: 4 stats in a row (2×2 grid on mobile), separated by subtle vertical dividers
+EACH STAT:
+- Huge number in orange (#E85D1F), 64px, weight 800 — e.g., "+10,000"
+- Label below in white, 16px, weight 500 — e.g., "طلب يُنفّذ شهرياً"
+
+THE 4 STATS:
+1. +10,000  /  طلب يُنفّذ شهرياً
+2. 6  /  دول خليجية مغطاة
+3. 85%+  /  متوسط نسبة التسليم الفعلي
+4. 7 أيام  /  لتحويل مستحقاتك
+
+━━━ 9. GROWTH SUPPORT SECTION ━━━
+
+White background.
+- Eyebrow orange: "أكثر من مجرد تشغيل"
+- H2 dark: "هلا ليست خدمة تشغيل فقط — هلا منصة نمو"
+
+- Below: 4 feature cards in a row, each with:
+  * Large icon at top (alternating purple/orange backgrounds)
+  * Bold title
+  * 2-line description
+  * Small text link "معرفة المزيد ←" in orange at the bottom
+
+FEATURES:
+1. ⚡ تشغيل احترافي يحرّر وقتك
+2. 📱 دعم إعلاني (تيك توك وسناب)
+3. 🎨 بناء البراند من الصفر
+4. 💳 حلول دعم مالي للتوسع
+
+━━━ 10. TESTIMONIALS SECTION ━━━
+
+Soft background (#F8F6FC).
+- Eyebrow orange: "آراء البائعين"
+- H2: "بائعون رفعوا نسبة تسليمهم معنا بأكثر من الضعف"
+
+- 3 testimonial cards in a row (white, rounded, bordered, padded):
+  * Quote in larger italic text
+  * Separator line
+  * Bottom row: circular avatar + bold name + muted role/business (e.g., "صاحب متجر عطور — الرياض")
+
+━━━ 11. FAQ SECTION ━━━
+
+White background.
+- Eyebrow orange: "أسئلة شائعة"
+- H2 dark: "أسئلة يسألها كل بائع قبل البدء معنا"
+
+- Below: accordion-style FAQ (9 items), each:
+  * Border-bottom separator (#E8E5F2)
+  * Question in dark, weight 600, 17px
+  * Chevron icon on the left (RTL) in purple — rotates 180° when open
+  * Expandable answer in body color, 15px, line-height 1.7, with 16px top padding
+  * First item open by default
+  * Smooth transition on expand
+
+━━━ 12. FINAL CTA SECTION ━━━
+
+Full-width section with deep purple background (#1E1A4D) OR a beautiful gradient from #2D2669 to #1E1A4D. Add a subtle decorative pattern (dots or abstract shapes) in orange 10% opacity on the sides.
+
+Centered content:
+- H2 in white, huge (48px): "جاهز تبدأ التوسع في الخليج؟"
+- Subheadline in white 90% opacity, 20px: "احجز استشارة مجانية مع فريق هلا، واحصل على خطة تشغيل مخصصة لنشاطك خلال 24 ساعة."
+- Two buttons centered:
+  * Primary: solid orange (#E85D1F) bg, white text: "احجز استشارة مجانية"
+  * Secondary: transparent bg, white border, white text: "اطلب عرض أسعار"
+- Below buttons, small muted-white text: "بدون التزام • إلغاء في أي وقت • نرد خلال 24 ساعة"
+
+━━━ 13. FOOTER ━━━
+
+Deep purple background (#1E1A4D). Text in white/muted white.
+
+4-column layout:
+
+COLUMN 1 (brand, wider — 30%):
+- Hala Kommers logo (white version or with orange dot)
+- Brief description: "شريكك التشغيلي للتجارة الإلكترونية في الخليج"
+- Social media icons row (X/Twitter, Instagram, LinkedIn, YouTube) — circular outline icons
+
+COLUMN 2: الشركة
+- عن هلا / الخدمات / لمن هلا / قصص نجاح / اتصل بنا
+
+COLUMN 3: الموارد  
+- المدونة / الأسئلة الشائعة / مركز الدعم / API
+
+COLUMN 4: تواصل معنا
+- رقم المبيعات
+- الواتساب
+- البريد الإلكتروني
+- العنوان (الرياض)
+
+BOTTOM STRIP:
+- Thin separator line
+- Copyright on the right: "© 2026 هلا كوميرس. جميع الحقوق محفوظة."
+- Links on the left: "شروط الخدمة | سياسة الخصوصية"
+
+═══════════════════════════════════════════════════
+✨ DESIGN PRINCIPLES (STRICTLY FOLLOW)
+═══════════════════════════════════════════════════
+
+1. BREATHING SPACE — Never cram content. Every section should feel generous and calm.
+2. CONSISTENT RADIUS — Cards: 16px | Buttons: 10px | Inputs: 8px. Never mix unnecessarily.
+3. SHADOWS ARE SUBTLE — Use shadow-sm by default. Reserve shadow-md for hover states.
+4. ORANGE IS PRECIOUS — Use the accent orange (#E85D1F) for 5-10% of the UI only. Overuse kills its power.
+5. ILLUSTRATIONS NOT PHOTOS — Every visual is a custom illustration, never a stock photo.
+6. HOVER STATES EVERYWHERE — Every interactive element has a clear hover state (color shift + cursor + subtle transform).
+7. ACCESSIBILITY — All text meets WCAG AA contrast. Focus states are visible. 
+8. MOBILE-FIRST — Every section reflows cleanly on mobile. Stats go 2×2. Grids collapse to single column. Text scales down appropriately.
+9. RTL IS NATIVE — Don't just flip an LTR design. Think RTL from the start: icons on the correct side, arrows point the right way, numbers formatted properly.
+10. NO EMOJI OVERUSE — The emoji in service cards should be replaced with proper custom icons in the final design. Use emojis only as placeholders.
+
+═══════════════════════════════════════════════════
+🎯 INSPIRATION REFERENCES
+═══════════════════════════════════════════════════
+
+PRIMARY: wafeq.com/ar-eg (structure, RTL execution, premium B2B feel)
+SECONDARY: 
+- salla.sa (Saudi e-commerce aesthetic)  
+- stripe.com (clean cards, trust elements)
+- linear.app (dark sections with bright accents)
+- vercel.com (minimal, confident, spacious)
+
+Build this as a production-ready, pixel-perfect, deployable landing page. Every element should feel intentional and premium.
