@@ -44,6 +44,49 @@ export default function Hero() {
               توريد، تخزين، تأكيد طلبات، شحن، وتحصيل — كل ما تحتاجه لتنمو بثقة في السعودية والخليج، تحت سقف شريك واحد.
             </p>
             
+            <div className="lg:hidden relative z-10 w-full max-w-[380px] mb-6">
+              <div className="relative w-full shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-white">
+                <div className="h-8 bg-secondary border-b border-border flex items-center px-4 gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                </div>
+                <div className="p-4 grid grid-cols-2 gap-3 bg-[#FDFDFD]">
+                  <div className="col-span-2 bg-white p-3 rounded-xl border border-border shadow-sm flex justify-between items-center">
+                    <div>
+                      <div className="text-[11px] text-muted-foreground mb-1">إجمالي الطلبات (الخليج)</div>
+                      <div className="text-xl font-extrabold text-primary">12,450</div>
+                    </div>
+                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                  </div>
+                  <div className="col-span-1 bg-white p-3 rounded-xl border border-border shadow-sm aspect-square flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-primary/5"></div>
+                    <svg width="58" height="58" viewBox="0 0 100 100" fill="none" className="text-primary/20">
+                      <path d="M50 10C27.9 10 10 27.9 10 50C10 72.1 27.9 90 50 90C72.1 90 90 72.1 90 50C90 27.9 72.1 10 50 10ZM50 82C32.3 82 18 67.7 18 50C18 32.3 32.3 18 50 18C67.7 18 82 32.3 82 50C82 67.7 67.7 82 50 82Z" fill="currentColor"/>
+                      <circle cx="50" cy="50" r="15" fill="currentColor"/>
+                    </svg>
+                    <div className="absolute top-[40%] right-[40%] w-2.5 h-2.5 bg-accent rounded-full"></div>
+                  </div>
+                  <div className="col-span-1 bg-white p-3 rounded-xl border border-border shadow-sm flex flex-col gap-2 justify-center">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                      <div className="h-2 w-12 bg-muted rounded-full"></div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-accent"></div>
+                      <div className="h-2 w-10 bg-muted rounded-full"></div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                      <div className="h-2 w-16 bg-muted rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5 w-full sm:w-auto">
               <Button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px] flex items-center justify-center gap-2" data-testid="button-hero-primary">
                 <span>ابدأ مع هلا مجاناً</span>
