@@ -11,6 +11,7 @@ import GrowthSupport from "@/components/GrowthSupport";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
+import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
@@ -32,12 +33,17 @@ export default function Landing() {
       <Navbar />
       <main>
         <Hero />
+        <SectionCTA />
         <TrustBar />
         <WhyHala />
+        <SectionCTA />
         <ServicesGrid />
+        <SectionCTA />
         <ForWhom />
+        <SectionCTA />
         <OrderJourney />
         <DashboardShowcase />
+        <SectionCTA />
         <Stats />
         <GrowthSupport />
         <Testimonials />

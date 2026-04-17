@@ -5,7 +5,7 @@ import dashSm from "@/assets/dashboards/dash_10.15.55_sm.webp";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden bg-white">
+    <section className="relative pt-24 pb-12 md:pt-44 md:pb-32 overflow-hidden bg-white">
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -14,15 +14,15 @@ export default function Hero() {
         }}
       />
 
-      <div className="container max-w-[1280px] mx-auto px-5 md:px-6 relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+      <div className="container max-w-[1280px] mx-auto px-4 sm:px-5 md:px-6 relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
           {/* Right Column: Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-center text-center lg:items-start lg:text-right order-1 lg:order-2"
+            className="flex flex-col items-center text-center lg:items-start lg:text-right order-1 lg:order-2 w-full max-w-[640px] lg:max-w-none mx-auto lg:mx-0"
           >
             <div className="inline-flex items-center gap-2 bg-accent/10 px-3 md:px-4 py-1.5 rounded-full mb-5 md:mb-6 max-w-full">
               <span className="text-accent text-[10px]">●</span>
@@ -105,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full flex items-center justify-center lg:justify-end order-2 lg:order-1 min-h-[280px] lg:min-h-[500px]"
+            className="relative w-full flex items-center justify-center lg:justify-end order-2 lg:order-1 min-h-[250px] sm:min-h-[280px] lg:min-h-[500px]"
           >
             <div className="hidden lg:block absolute w-[85%] h-[85%] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob" />
             <div className="hidden lg:block absolute w-[60%] h-[60%] -bottom-10 -left-10 bg-accent/10 rounded-full filter blur-3xl opacity-60" />
@@ -114,7 +114,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative z-10 w-full max-w-[580px] shadow-[0_30px_80px_-20px_rgba(45,38,105,0.4)] rounded-2xl overflow-hidden border border-border/50 bg-white"
+              className="relative z-10 w-full max-w-[560px] sm:max-w-[580px] shadow-[0_30px_80px_-20px_rgba(45,38,105,0.4)] rounded-2xl overflow-hidden border border-border/50 bg-white"
             >
               <div className="h-9 bg-gradient-to-b from-[#F4F2F8] to-[#ECE9F2] border-b border-border flex items-center px-4 gap-2 relative" dir="ltr">
                 <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
