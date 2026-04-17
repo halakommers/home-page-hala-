@@ -80,12 +80,12 @@ export default function ServicesGrid() {
             <motion.div 
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-8 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
+              className="bg-white rounded-2xl p-6 md:p-8 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group text-center"
             >
               {/* Top border accent */}
               <div className="absolute top-0 left-0 w-full h-1 bg-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
               
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto ${
                 service.color === 'orange' ? 'bg-[#FFE8D9] text-accent' : 'bg-secondary text-primary'
               }`}>
                 <service.icon size={28} strokeWidth={2} />
