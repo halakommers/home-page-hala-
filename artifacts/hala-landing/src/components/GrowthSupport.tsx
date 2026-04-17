@@ -203,7 +203,6 @@ export default function GrowthSupport() {
           </svg>
         </motion.div>
       </div>
-
       <div className="container max-w-[1280px] mx-auto px-6 relative">
         <div className="text-center mb-16">
           <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">أكثر من مجرد تشغيل</span>
@@ -220,7 +219,7 @@ export default function GrowthSupport() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-secondary rounded-2xl p-8 border border-transparent hover:border-border hover:shadow-sm transition-all duration-300 flex flex-col h-full"
+              className="rounded-2xl p-8 border border-transparent hover:border-border hover:shadow-sm transition-all duration-300 flex flex-col h-full bg-[#d8d8f0]"
             >
               <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 shadow-sm ${
                 feature.color === 'orange' ? 'bg-[#FFE8D9] text-accent' : 'bg-primary/10 text-primary'
