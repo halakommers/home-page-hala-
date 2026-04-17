@@ -57,7 +57,7 @@ export default function ServicesGrid() {
   };
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-secondary scroll-mt-20">
+    <section id="services" className="py-16 md:py-32 bg-secondary scroll-mt-20">
       <div className="container max-w-[1280px] mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16">
           <span className="text-accent font-bold text-[14px] tracking-wide mb-4">خدماتنا المتكاملة</span>

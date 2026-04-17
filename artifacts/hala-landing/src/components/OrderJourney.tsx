@@ -11,7 +11,7 @@ export default function OrderJourney() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-secondary scroll-mt-20 overflow-hidden">
+    <section id="how-it-works" className="py-16 md:py-32 bg-secondary scroll-mt-20 overflow-hidden">
       <div className="container max-w-[1280px] mx-auto px-6">
         <div className="text-center mb-20">
           <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">رحلة الطلب</span>

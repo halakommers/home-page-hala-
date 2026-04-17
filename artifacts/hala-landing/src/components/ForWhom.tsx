@@ -31,7 +31,7 @@ export default function ForWhom() {
   ];
 
   return (
-    <section id="for-whom" className="py-24 md:py-32 bg-white scroll-mt-20">
+    <section id="for-whom" className="py-16 md:py-32 bg-white scroll-mt-20">
       <div className="container max-w-[1280px] mx-auto px-6">
         <div className="mb-12 text-center md:text-right">
           <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">لمن هلا؟</span>

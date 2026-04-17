@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function WhyHala() {
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-white relative overflow-hidden">
       {/* Decorative side dots */}
       <div 
         className="absolute right-0 top-1/2 -translate-y-1/2 w-32 h-64 opacity-[0.05] pointer-events-none" 

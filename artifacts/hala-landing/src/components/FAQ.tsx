@@ -47,7 +47,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-16 md:py-32 bg-white">
       <div className="container max-w-[800px] mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">أسئلة شائعة</span>

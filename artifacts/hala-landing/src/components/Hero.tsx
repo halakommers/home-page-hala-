@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="relative pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white">
+    <section className="relative pt-32 pb-16 md:pt-44 md:pb-32 overflow-hidden bg-white">
       {/* Decorative background dot pattern */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none" 
@@ -13,26 +13,26 @@ export default function Hero() {
         }}
       ></div>
 
-      <div className="container max-w-[1280px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="container max-w-[1280px] mx-auto px-5 md:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           
           {/* Right Column: Text Content */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-start text-right"
+            className="flex flex-col items-center text-center lg:items-start lg:text-right order-2 lg:order-1"
           >
-            <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-1.5 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-accent/10 px-3 md:px-4 py-1.5 rounded-full mb-5 md:mb-6 max-w-full">
               <span className="text-accent text-[10px]">●</span>
-              <span className="text-accent text-[13px] font-bold tracking-wide">تشغيل متكامل للتجارة الإلكترونية في الخليج</span>
+              <span className="text-accent text-[12px] md:text-[13px] font-bold tracking-wide whitespace-normal">تشغيل متكامل للتجارة الإلكترونية في الخليج</span>
             </div>
             
-            <h1 className="text-[36px] md:text-[60px] font-extrabold text-foreground leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-[32px] sm:text-[40px] md:text-[60px] font-extrabold text-foreground leading-[1.15] md:leading-[1.1] mb-5 md:mb-6 tracking-tight">
               منظومة تشغيل{" "}
               <span className="relative inline-block">
                 متكاملة
-                <svg className="absolute w-full h-[12px] -bottom-1 left-0 text-accent" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+                <svg className="absolute w-full h-[10px] md:h-[12px] -bottom-1 left-0 text-accent" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
                   <path d="M2 9.5C45.5 3.5 120 -2.5 198 8.5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>{" "}
@@ -40,21 +40,21 @@ export default function Hero() {
               لتجارتك في الخليج
             </h1>
             
-            <p className="text-[18px] md:text-[20px] text-muted-foreground leading-[1.7] max-w-[540px] mb-10">
+            <p className="text-[16px] sm:text-[17px] md:text-[20px] text-muted-foreground leading-[1.8] md:leading-[1.7] max-w-[540px] mb-8 md:mb-10 px-2 sm:px-0">
               توريد، تخزين، تأكيد طلبات، شحن، وتحصيل — كل ما تحتاجه لتنمو بثقة في السعودية والخليج، تحت سقف شريك واحد.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-6 w-full sm:w-auto">
-              <Button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 text-[16px] h-14 px-8 rounded-[10px] flex items-center justify-center gap-2" data-testid="button-hero-primary">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5 w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px] flex items-center justify-center gap-2" data-testid="button-hero-primary">
                 <span>ابدأ مع هلا مجاناً</span>
                 <span className="text-lg">←</span>
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto bg-white border-2 border-primary text-primary hover:bg-primary/5 text-[16px] h-14 px-8 rounded-[10px]" data-testid="button-hero-secondary">
+              <Button variant="outline" className="w-full sm:w-auto bg-white border-2 border-primary text-primary hover:bg-primary/5 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px]" data-testid="button-hero-secondary">
                 احجز استشارة
               </Button>
             </div>
             
-            <div className="text-[13px] text-muted-foreground font-medium flex items-center gap-2">
+            <div className="text-[12px] md:text-[13px] text-muted-foreground font-medium flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1">
               <span>استشارة مجانية</span>
               <span className="text-border">•</span>
               <span>بدون التزام</span>
@@ -62,12 +62,12 @@ export default function Hero() {
               <span>رد خلال 24 ساعة</span>
             </div>
             
-            <div className="mt-12 flex items-center gap-3 bg-secondary/50 p-4 rounded-2xl border border-border/50">
-              <div className="flex text-accent text-lg">
+            <div className="mt-8 md:mt-12 flex items-center gap-3 bg-secondary/50 p-3 md:p-4 rounded-2xl border border-border/50">
+              <div className="flex text-accent text-base md:text-lg">
                 ⭐⭐⭐⭐⭐
               </div>
-              <p className="text-[14px] font-bold text-primary">
-                4.9 <span className="text-muted-foreground font-medium">— متوسط تقييم البائعين الذين انضموا لنا</span>
+              <p className="text-[12px] md:text-[14px] font-bold text-primary">
+                4.9 <span className="text-muted-foreground font-medium">— متوسط تقييم البائعين</span>
               </p>
             </div>
           </motion.div>
@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center lg:justify-end"
+            className="relative h-[300px] sm:h-[380px] md:h-[500px] w-full flex items-center justify-center lg:justify-end order-1 lg:order-2"
           >
             {/* Background Blob */}
             <div className="absolute w-[80%] h-[80%] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>

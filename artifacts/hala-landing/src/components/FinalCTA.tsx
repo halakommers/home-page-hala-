@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function FinalCTA() {
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-br from-primary to-[#1E1A4D]">
+    <section className="py-16 md:py-32 relative overflow-hidden bg-gradient-to-br from-primary to-[#1E1A4D]">
       {/* Decorative background dot pattern */}
       <div 
         className="absolute inset-0 opacity-10 pointer-events-none" 

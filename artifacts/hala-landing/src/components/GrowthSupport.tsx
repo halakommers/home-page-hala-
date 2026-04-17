@@ -30,7 +30,7 @@ export default function GrowthSupport() {
   ];
 
   return (
-    <section id="growth" className="relative py-24 md:py-32 bg-gradient-to-b from-white via-[#FBF9FE] to-white overflow-hidden">
+    <section id="growth" className="relative py-16 md:py-32 bg-gradient-to-b from-white via-[#FBF9FE] to-white overflow-hidden">
       {/* Background growth scene: rockets, sparkles, dotted arc */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Subtle dotted grid */}
