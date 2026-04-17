@@ -7,6 +7,10 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { blogPosts, getPostBySlug, type ContentBlock } from "@/data/blogPosts";
 import NotFound from "@/pages/not-found";
+import { useSEO } from "@/hooks/useSEO";
+import StructuredData, { organizationSchema } from "@/components/StructuredData";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { buildBreadcrumbSchema } from "@/lib/schema";
 
 function renderBlock(block: ContentBlock, idx: number) {
   switch (block.type) {
@@ -82,6 +86,57 @@ function renderBlock(block: ContentBlock, idx: number) {
   }
 }
 
+function BlogPostSEO({ post }: { post: NonNullable<ReturnType<typeof getPostBySlug>> }) {
+  const breadcrumbItems = [
+    { label: "الرئيسية", href: "/" },
+    { label: "المدونة", href: "/blog" },
+    { label: post.title },
+  ];
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://halacommerce.com/blog/${post.slug}`,
+    headline: post.title,
+    description: post.excerpt,
+    author: {
+      "@type": "Organization",
+      name: post.author,
+      "@id": "https://halacommerce.com/#organization",
+    },
+    publisher: { "@id": "https://halacommerce.com/#organization" },
+    datePublished: "2026-04-01",
+    dateModified: "2026-04-17",
+    inLanguage: "ar-SA",
+    url: `https://halacommerce.com/blog/${post.slug}`,
+    articleSection: post.category,
+    image: {
+      "@type": "ImageObject",
+      url: "https://halacommerce.com/opengraph.jpg",
+      width: 1200,
+      height: 630,
+    },
+  };
+
+  useSEO({
+    title: post.title,
+    description: post.excerpt,
+    keywords: `${post.category}, تجارة إلكترونية, خليج, هلا كوميرس`,
+    canonical: `/blog/${post.slug}`,
+    ogType: "article",
+    ogTitle: `${post.title} — هلا كوميرس`,
+    ogDescription: post.excerpt,
+    articleAuthor: post.author,
+  });
+
+  return (
+    <StructuredData
+      schema={[organizationSchema, articleSchema, buildBreadcrumbSchema(breadcrumbItems)]}
+      id="blogpost-schema"
+    />
+  );
+}
+
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
   const post = params ? getPostBySlug(params.slug) : undefined;
@@ -93,9 +148,15 @@ export default function BlogPost() {
   if (!post) return <NotFound />;
 
   const otherPosts = blogPosts.filter((p) => p.slug !== post.slug);
+  const breadcrumbItems = [
+    { label: "الرئيسية", href: "/" },
+    { label: "المدونة", href: "/blog" },
+    { label: post.title },
+  ];
 
   return (
     <div dir="rtl" className="min-h-screen bg-white text-primary font-cairo">
+      <BlogPostSEO post={post} />
       <Navbar />
 
       {/* Hero */}
@@ -111,6 +172,9 @@ export default function BlogPost() {
           }}
         />
         <div className="container max-w-[900px] mx-auto px-6 relative">
+          <div className="mb-6">
+            <Breadcrumbs items={breadcrumbItems} light />
+          </div>
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-white/85 hover:text-white text-sm font-bold mb-8 transition-colors"

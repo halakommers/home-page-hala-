@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://halacommerce.com/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/saudi-market-guide-for-egyptian-sellers</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-01</news:publication_date>
+      <news:title>دليل البائع المصري للتوسع في السوق السعودي</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/increase-cod-confirmation-rate</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-10</news:publication_date>
+      <news:title>كيف ترفع نسبة تأكيد طلبات COD إلى 85%</news:title>
+    </news:news>
+  </url>
+
+</urlset>

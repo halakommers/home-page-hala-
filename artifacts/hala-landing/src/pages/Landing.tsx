@@ -11,10 +11,21 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import StructuredData, { organizationSchema, websiteSchema, serviceSchema } from "@/components/StructuredData";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Landing() {
+  useSEO({
+    title: "شريكك التشغيلي للتجارة الإلكترونية في الخليج",
+    description: "هلا كوميرس — شريك التشغيل المتكامل للتجارة الإلكترونية في الخليج. توريد، تخزين، تأكيد طلبات، شحن، وتحصيل نقدي في السعودية والإمارات والكويت والبحرين وقطر وعُمان.",
+    keywords: "تجارة إلكترونية خليج, شحن السعودية, تخزين منتجات, تأكيد طلبات COD, فولفيلمنت, هلا كوميرس, e-commerce fulfillment Saudi Arabia, فولفيلمنت الخليج",
+    canonical: "/",
+    ogType: "website",
+  });
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground w-full overflow-x-hidden">
+      <StructuredData schema={[organizationSchema, websiteSchema, serviceSchema]} id="landing-schema" />
       <Navbar />
       <main>
         <Hero />

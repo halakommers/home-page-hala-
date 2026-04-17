@@ -4,10 +4,32 @@ import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
+import { useSEO } from "@/hooks/useSEO";
+import StructuredData, { organizationSchema } from "@/components/StructuredData";
+
+const blogListSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://halacommerce.com/blog",
+  name: "مدونة هلا كوميرس",
+  description: "رؤى وأدلة عملية لتجارة إلكترونية ناجحة في الخليج العربي",
+  url: "https://halacommerce.com/blog",
+  publisher: { "@id": "https://halacommerce.com/#organization" },
+  inLanguage: "ar-SA",
+};
 
 export default function Blog() {
+  useSEO({
+    title: "المدونة — رؤى وأدلة للتجارة الإلكترونية في الخليج",
+    description: "اكتشف أحدث المقالات والأدلة العملية من هلا كوميرس حول التجارة الإلكترونية في الخليج — شحن، تخزين، COD، والتوسع في السوق السعودي.",
+    keywords: "مدونة تجارة إلكترونية, دليل السوق السعودي, COD خليج, فولفيلمنت, بيع اونلاين الخليج",
+    canonical: "/blog",
+    ogType: "website",
+  });
+
   return (
     <div dir="rtl" className="min-h-screen bg-white text-primary font-cairo">
+      <StructuredData schema={[organizationSchema, blogListSchema]} id="blog-schema" />
       <Navbar />
 
       {/* Header */}

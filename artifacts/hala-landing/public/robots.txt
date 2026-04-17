@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://halacommerce.com/sitemap.xml
+
+# Disallow development paths
+Disallow: /src/
+Disallow: /@/
+Disallow: /node_modules/
