@@ -19,7 +19,6 @@ export default function Navbar() {
     { name: "الخدمات", href: "/#services", isRoute: false },
     { name: "لمن هلا", href: "/#for-whom", isRoute: false },
     { name: "كيف نعمل", href: "/#how-it-works", isRoute: false },
-    { name: "الأسعار", href: "/#pricing", isRoute: false },
     { name: "المدونة", href: "/blog", isRoute: true },
   ];
 
