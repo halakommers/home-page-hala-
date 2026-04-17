@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
@@ -101,13 +101,6 @@ export default function DashboardShowcase() {
       return new Set([...prev, id]);
     });
   };
-
-  // Preload neighbors of active tab so switching is instant
-  useEffect(() => {
-    const idx = tabs.findIndex(t => t.id === activeTab);
-    const neighbors = [tabs[idx - 1]?.id, tabs[idx + 1]?.id].filter(Boolean) as string[];
-    neighbors.forEach(preload);
-  }, [activeTab]);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,

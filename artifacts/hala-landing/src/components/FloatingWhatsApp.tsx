@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
+import { useUI } from "@/contexts/UIContext";
 
 const WHATSAPP_NUMBER = "966500000000";
 const PREFILLED_MESSAGE = "السلام عليكم، أرغب في معرفة المزيد عن خدمات هلا كوميرس للتجارة الإلكترونية.";
@@ -8,16 +9,28 @@ const PREFILLED_MESSAGE = "السلام عليكم، أرغب في معرفة ا
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasShownOnce, setHasShownOnce] = useState(false);
+  const { isMobileMenuOpen } = useUI();
 
   useEffect(() => {
     const t = setTimeout(() => setHasShownOnce(true), 8000);
     return () => clearTimeout(t);
   }, []);
 
+  // Auto-close the chat preview if the mobile drawer opens
+  useEffect(() => {
+    if (isMobileMenuOpen && isOpen) setIsOpen(false);
+  }, [isMobileMenuOpen, isOpen]);
+
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`;
 
   return (
-    <div className="fixed bottom-5 left-5 z-[60] flex flex-col items-start gap-3" dir="rtl">
+    <div
+      className={`fixed bottom-5 left-5 z-40 flex flex-col items-start gap-3 transition-opacity duration-200 ${
+        isMobileMenuOpen ? "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" : "opacity-100"
+      }`}
+      aria-hidden={isMobileMenuOpen ? true : undefined}
+      dir="rtl"
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div
