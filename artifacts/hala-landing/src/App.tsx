@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/Landing";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import HelpCenter from "@/pages/HelpCenter";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Landing} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/help" component={HelpCenter} />
       <Route component={NotFound} />
     </Switch>
   );
