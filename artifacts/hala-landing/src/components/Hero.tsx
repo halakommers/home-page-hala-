@@ -46,11 +46,6 @@ export default function Hero() {
             
             <div className="lg:hidden relative z-10 w-full max-w-[380px] mb-6">
               <div className="relative w-full shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-white">
-                <div className="h-8 bg-secondary border-b border-border flex items-center px-4 gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                </div>
                 <div className="p-4 grid grid-cols-2 gap-3 bg-[#FDFDFD]">
                   <div className="col-span-2 bg-white p-3 rounded-xl border border-border shadow-sm flex justify-between items-center">
                     <div>
