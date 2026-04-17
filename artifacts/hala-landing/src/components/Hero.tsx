@@ -15,14 +15,14 @@ export default function Hero() {
       />
 
       <div className="container max-w-[1280px] mx-auto px-5 md:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
 
           {/* Right Column: Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-center text-center lg:items-start lg:text-right order-2 lg:order-1"
+            className="flex flex-col items-center text-center lg:items-start lg:text-right order-1 lg:order-2"
           >
             <div className="inline-flex items-center gap-2 bg-accent/10 px-3 md:px-4 py-1.5 rounded-full mb-5 md:mb-6 max-w-full">
               <span className="text-accent text-[10px]">●</span>
@@ -105,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full flex items-center justify-center lg:justify-end order-1 lg:order-2 min-h-[280px] lg:min-h-[500px]"
+            className="relative w-full flex items-center justify-center lg:justify-end order-2 lg:order-1 min-h-[280px] lg:min-h-[500px]"
           >
             <div className="hidden lg:block absolute w-[85%] h-[85%] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob" />
             <div className="hidden lg:block absolute w-[60%] h-[60%] -bottom-10 -left-10 bg-accent/10 rounded-full filter blur-3xl opacity-60" />
