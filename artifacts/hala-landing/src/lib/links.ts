@@ -1,5 +1,5 @@
-export const LOGIN_URL = "https://seller.halakommers.com/login";
-export const SIGNUP_URL = "https://seller.halakommers.com/signup";
+export const LOGIN_URL = "https://seller.halakommers.com/auth/login";
+export const SIGNUP_URL = "https://seller.halakommers.com/auth/signup";
 export const CAL_URL = "https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true";
 export const WHATSAPP_NUMBER = "201121014104";
 export const WHATSAPP_DISPLAY = "+20 112 101 4104";
