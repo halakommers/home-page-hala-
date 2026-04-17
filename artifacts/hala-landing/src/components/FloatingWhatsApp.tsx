@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useUI } from "@/contexts/UIContext";
+import { WHATSAPP_NUMBER } from "@/lib/links";
 
-const WHATSAPP_NUMBER = "966500000000";
 const PREFILLED_MESSAGE = "السلام عليكم، أرغب في معرفة المزيد عن خدمات هلا كوميرس للتجارة الإلكترونية.";
 
 export default function FloatingWhatsApp() {

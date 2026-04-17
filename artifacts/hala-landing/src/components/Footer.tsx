@@ -61,7 +61,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-[16px] mb-6">تواصل معنا</h4>
             <ul className="flex flex-col gap-4">
               <li className="text-[15px]">رقم المبيعات: 920000000</li>
-              <li className="text-[15px]">واتساب: +966500000000</li>
+              <li className="text-[15px]" dir="ltr">واتساب: +20 112 101 4104</li>
               <li className="text-[15px]">البريد الإلكتروني: hello@hala.sa</li>
               <li className="text-[15px] mt-2 text-white/60">الرياض، المملكة العربية السعودية</li>
             </ul>
