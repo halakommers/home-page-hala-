@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
   Search,
   BookOpen,
@@ -804,6 +805,7 @@ export default function HelpCenter() {
       </main>
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

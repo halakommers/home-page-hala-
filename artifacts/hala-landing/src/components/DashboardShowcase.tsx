@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
@@ -10,12 +10,18 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import dashOverview from "@assets/Screenshot_2026-04-17_at_10.15.55_AM_1776414637355.png";
-import dashOrders from "@assets/Screenshot_2026-04-17_at_10.16.16_AM_1776414637384.png";
-import dashFinance from "@assets/Screenshot_2026-04-17_at_10.16.33_AM_1776414637384.png";
-import dashAnalytics from "@assets/Screenshot_2026-04-17_at_10.17.32_AM_1776414637385.png";
-import dashProducts from "@assets/Screenshot_2026-04-17_at_10.17.57_AM_1776414637386.png";
-import dashInvoice from "@assets/Screenshot_2026-04-17_at_10.19.08_AM_1776414637386.png";
+import dashOverviewLg from "@/assets/dashboards/dash_10.15.55_lg.webp";
+import dashOverviewSm from "@/assets/dashboards/dash_10.15.55_sm.webp";
+import dashOrdersLg from "@/assets/dashboards/dash_10.16.16_lg.webp";
+import dashOrdersSm from "@/assets/dashboards/dash_10.16.16_sm.webp";
+import dashFinanceLg from "@/assets/dashboards/dash_10.16.33_lg.webp";
+import dashFinanceSm from "@/assets/dashboards/dash_10.16.33_sm.webp";
+import dashAnalyticsLg from "@/assets/dashboards/dash_10.17.32_lg.webp";
+import dashAnalyticsSm from "@/assets/dashboards/dash_10.17.32_sm.webp";
+import dashProductsLg from "@/assets/dashboards/dash_10.17.57_lg.webp";
+import dashProductsSm from "@/assets/dashboards/dash_10.17.57_sm.webp";
+import dashInvoiceLg from "@/assets/dashboards/dash_10.19.08_lg.webp";
+import dashInvoiceSm from "@/assets/dashboards/dash_10.19.08_sm.webp";
 
 const tabs = [
   {
@@ -24,7 +30,7 @@ const tabs = [
     title: "نظرة عامة",
     label: "اللوحة الرئيسية",
     desc: "كل أرقام نشاطك في شاشة واحدة — الطلبات، التأكيدات، الاستلام، والأداء المالي لحظياً.",
-    image: dashOverview,
+    imageLg: dashOverviewLg, imageSm: dashOverviewSm,
     highlights: ["نسبة التأكيد لكل المنتجات", "الرصيد المتاح وقيد المعالجة", "أداء الأرباح بالرسم البياني"],
   },
   {
@@ -33,7 +39,7 @@ const tabs = [
     title: "إدارة الطلبات",
     label: "كل طلب وحالته",
     desc: "تابع كل طلب لحظياً مع عدد المحاولات، حالة التأكيد، طريقة الدفع، وعنوان العميل الكامل.",
-    image: dashOrders,
+    imageLg: dashOrdersLg, imageSm: dashOrdersSm,
     highlights: ["تصفية متقدّمة بالحالة والدولة", "تصدير Excel للطلبات", "محاولات التواصل لكل عميل"],
   },
   {
@@ -42,7 +48,7 @@ const tabs = [
     title: "السجل المالي",
     label: "فواتير ومعاملات",
     desc: "سجل مالي كامل لكل فاتورة وكل معاملة — تواريخ، صافي المبلغ، إجمالي المدين والدائن.",
-    image: dashFinance,
+    imageLg: dashFinanceLg, imageSm: dashFinanceSm,
     highlights: ["فواتير أسبوعية تلقائية", "تتبع كل المعاملات المالية", "حسابات بنكية متعددة"],
   },
   {
@@ -51,7 +57,7 @@ const tabs = [
     title: "لوحة التحليلات",
     label: "أداء متجرك بالأرقام",
     desc: "نظرة شاملة على أداء متجرك — معدلات التأكيد والتسليم، أسباب الإلغاء والإرجاع، وكل المؤشرات.",
-    image: dashAnalytics,
+    imageLg: dashAnalyticsLg, imageSm: dashAnalyticsSm,
     highlights: ["مقارنة بالفترة السابقة", "أهم أسباب الإلغاء والإرجاع", "حالات الطلب اليومية"],
   },
   {
@@ -60,7 +66,7 @@ const tabs = [
     title: "منتجات هلا شير",
     label: "قسم منتجات جاهزة",
     desc: "اختر من مئات المنتجات الجاهزة في مخزون هلا — اربطها بمتجرك في ثوانٍ وابدأ البيع فوراً.",
-    image: dashProducts,
+    imageLg: dashProductsLg, imageSm: dashProductsSm,
     highlights: ["+132 منتج جاهز للبيع", "أسعار تنافسية وشحن سريع", "تشغيل بدون مخاطر مخزون"],
   },
   {
@@ -69,15 +75,39 @@ const tabs = [
     title: "تفاصيل الفاتورة",
     label: "شفافية كاملة",
     desc: "كل بند من بنود الفاتورة موضّح بالتفصيل — رسوم الطلبات المؤكدة، التوصيل، المرتجعات، وصافي المبلغ.",
-    image: dashInvoice,
+    imageLg: dashInvoiceLg, imageSm: dashInvoiceSm,
     highlights: ["تفصيل كل رسم على حدة", "تنزيل PDF بضغطة زر", "تواريخ بداية ونهاية واضحة"],
   },
 ];
 
 export default function DashboardShowcase() {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [loadedTabs, setLoadedTabs] = useState<Set<string>>(new Set([tabs[0].id]));
   const sectionRef = useRef<HTMLElement>(null);
   const active = tabs.find(t => t.id === activeTab)!;
+
+  // Programmatically preload an image into the browser cache, then mark it loaded
+  const preload = (id: string) => {
+    if (typeof window === "undefined") return;
+    setLoadedTabs(prev => {
+      if (prev.has(id)) return prev;
+      const tab = tabs.find(t => t.id === id);
+      if (tab) {
+        const isWide = window.matchMedia("(min-width: 768px)").matches;
+        const url = isWide ? tab.imageLg : tab.imageSm;
+        const img = new Image();
+        img.src = url;
+      }
+      return new Set([...prev, id]);
+    });
+  };
+
+  // Preload neighbors of active tab so switching is instant
+  useEffect(() => {
+    const idx = tabs.findIndex(t => t.id === activeTab);
+    const neighbors = [tabs[idx - 1]?.id, tabs[idx + 1]?.id].filter(Boolean) as string[];
+    neighbors.forEach(preload);
+  }, [activeTab]);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -92,8 +122,8 @@ export default function DashboardShowcase() {
       id="dashboard"
       className="relative py-24 overflow-hidden bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC]"
       dir="rtl"
+      style={{ position: "relative" }}
     >
-      {/* Decorative background blobs */}
       <motion.div
         style={{ y: blobY }}
         className="absolute top-20 -right-32 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none"
@@ -104,8 +134,6 @@ export default function DashboardShowcase() {
       />
 
       <div className="container max-w-[1280px] mx-auto px-6 relative">
-
-        {/* ─── Header ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +154,6 @@ export default function DashboardShowcase() {
           </p>
         </motion.div>
 
-        {/* ─── Tabs ─── */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,6 +167,8 @@ export default function DashboardShowcase() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                onMouseEnter={() => preload(tab.id)}
+                onTouchStart={() => preload(tab.id)}
                 className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] md:text-[14px] font-bold transition-all duration-300 ${
                   isActive
                     ? "text-white shadow-lg shadow-primary/20"
@@ -161,10 +190,7 @@ export default function DashboardShowcase() {
           })}
         </motion.div>
 
-        {/* ─── Showcase ─── */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-
-          {/* Description (right in RTL) */}
           <div className="lg:col-span-4 lg:order-2">
             <AnimatePresence mode="wait">
               <motion.div
@@ -203,16 +229,10 @@ export default function DashboardShowcase() {
             </AnimatePresence>
           </div>
 
-          {/* Image (left in RTL = order-1) */}
           <div className="lg:col-span-8 lg:order-1">
-            <motion.div
-              style={{ y }}
-              className="relative"
-            >
-              {/* Glow effect */}
+            <motion.div style={{ y }} className="relative">
               <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-primary/15 to-accent/10 rounded-[32px] blur-2xl opacity-60" />
 
-              {/* Browser frame */}
               <motion.div
                 initial={{ opacity: 0, y: 30, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -220,7 +240,6 @@ export default function DashboardShowcase() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="relative rounded-[16px] md:rounded-[20px] overflow-hidden bg-white border border-[#E8E5F2] shadow-[0_30px_80px_-20px_rgba(45,38,105,0.35)]"
               >
-                {/* Browser top bar */}
                 <div className="flex items-center justify-between px-4 py-2.5 bg-gradient-to-b from-[#F4F2F8] to-[#ECE9F2] border-b border-[#E8E5F2]" dir="ltr">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
@@ -233,24 +252,34 @@ export default function DashboardShowcase() {
                   <div className="w-12" />
                 </div>
 
-                {/* Image with crossfade */}
                 <div className="relative bg-white aspect-[16/12] md:aspect-[16/11] overflow-hidden">
                   <AnimatePresence mode="wait">
-                    <motion.img
-                      key={active.id}
-                      src={active.image}
-                      alt={active.title}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                    />
+                    {tabs.map(tab => (
+                      tab.id === active.id && loadedTabs.has(tab.id) && (
+                        <motion.picture
+                          key={tab.id}
+                          initial={{ opacity: 0, scale: 1.04 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.98 }}
+                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                          className="absolute inset-0"
+                        >
+                          <source media="(min-width: 768px)" srcSet={tab.imageLg} />
+                          <img
+                            src={tab.imageSm}
+                            alt={tab.title}
+                            width="1280"
+                            height="817"
+                            loading="lazy"
+                            className="w-full h-full object-cover object-top"
+                          />
+                        </motion.picture>
+                      )
+                    ))}
                   </AnimatePresence>
                 </div>
               </motion.div>
 
-              {/* Floating badge — top-left */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, x: -30, y: -30 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
@@ -267,7 +296,6 @@ export default function DashboardShowcase() {
                 </div>
               </motion.div>
 
-              {/* Floating badge — bottom-right */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, x: 30, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
@@ -285,10 +313,8 @@ export default function DashboardShowcase() {
               </motion.div>
             </motion.div>
           </div>
-
         </div>
 
-        {/* ─── Bottom strip: features ─── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +341,6 @@ export default function DashboardShowcase() {
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

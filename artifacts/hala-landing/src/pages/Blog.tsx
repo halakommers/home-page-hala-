@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { blogPosts } from "@/data/blogPosts";
 import { useSEO } from "@/hooks/useSEO";
 import StructuredData, { organizationSchema } from "@/components/StructuredData";
@@ -181,6 +182,7 @@ export default function Blog() {
       </section>
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

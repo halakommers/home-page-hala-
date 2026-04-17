@@ -64,7 +64,7 @@ export default function ForWhom() {
       </div>
       
       {/* Hide Scrollbar CSS injection */}
-      <style dangerouslySetInlineStyle={{__html: `
+      <style dangerouslySetInnerHTML={{__html: `
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }

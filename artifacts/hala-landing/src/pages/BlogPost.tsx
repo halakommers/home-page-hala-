@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { blogPosts, getPostBySlug, type ContentBlock } from "@/data/blogPosts";
 import NotFound from "@/pages/not-found";
@@ -288,6 +289,7 @@ export default function BlogPost() {
       )}
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

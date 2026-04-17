@@ -12,6 +12,8 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 import StructuredData, { organizationSchema, websiteSchema, serviceSchema } from "@/components/StructuredData";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -43,6 +45,8 @@ export default function Landing() {
         <FinalCTA />
       </main>
       <Footer />
+      <FloatingWhatsApp />
+      <MobileStickyCTA />
     </div>
   );
 }
