@@ -5,6 +5,7 @@ import WhyHala from "@/components/WhyHala";
 import ServicesGrid from "@/components/ServicesGrid";
 import ForWhom from "@/components/ForWhom";
 import OrderJourney from "@/components/OrderJourney";
+import DashboardShowcase from "@/components/DashboardShowcase";
 import Stats from "@/components/Stats";
 import GrowthSupport from "@/components/GrowthSupport";
 import Testimonials from "@/components/Testimonials";
@@ -34,6 +35,7 @@ export default function Landing() {
         <ServicesGrid />
         <ForWhom />
         <OrderJourney />
+        <DashboardShowcase />
         <Stats />
         <GrowthSupport />
         <Testimonials />
