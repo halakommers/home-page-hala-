@@ -83,16 +83,15 @@ export default function NotFound() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 + i * 0.05 }}
           >
-            <Link href={link.href}>
-              <a
-                className="block bg-white hover:bg-secondary/40 border border-border hover:border-accent/30 rounded-2xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-md group"
-                data-testid={link.testId}
-              >
-                <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary/10 group-hover:bg-accent/15 flex items-center justify-center text-primary group-hover:text-accent transition-colors">
-                  <link.icon size={18} />
-                </div>
-                <p className="text-[13px] font-bold text-primary">{link.label}</p>
-              </a>
+            <Link
+              href={link.href}
+              className="block bg-white hover:bg-secondary/40 border border-border hover:border-accent/30 rounded-2xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-md group"
+              data-testid={link.testId}
+            >
+              <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary/10 group-hover:bg-accent/15 flex items-center justify-center text-primary group-hover:text-accent transition-colors">
+                <link.icon size={18} />
+              </div>
+              <p className="text-[13px] font-bold text-primary">{link.label}</p>
             </Link>
           </motion.div>
         ))}
