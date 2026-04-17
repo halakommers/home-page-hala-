@@ -31,9 +31,9 @@ function Counter({ from = 0, to, duration = 2, suffix = "" }: { from?: number, t
 
 export default function Stats() {
   const stats = [
-    { num: 10000, label: "طلب يُنفّذ شهرياً", suffix: "" },
+    { num: 50000, label: "طلب يُنفّذ شهرياً", suffix: "" },
     { num: 6, label: "دول خليجية مغطاة", suffix: "" },
-    { num: 85, label: "متوسط نسبة التسليم الفعلي", suffix: "%+" },
+    { num: 70, label: "متوسط نسبة التسليم الفعلي", suffix: "%+" },
     { num: 7, label: "لتحويل مستحقاتك", suffix: " أيام" }
   ];
 
