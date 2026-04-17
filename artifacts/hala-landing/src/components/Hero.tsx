@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import dashboardImg from "@assets/Screenshot_2026-04-17_at_10.15.55_AM_1776415061337.png";
 
 export default function Hero() {
   return (
@@ -46,17 +47,12 @@ export default function Hero() {
             
             <div className="lg:hidden relative z-10 w-full max-w-[380px] mb-6">
               <div className="relative w-full shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-white">
-                <div className="p-4 bg-[#FDFDFD]">
-                  <div className="bg-white p-3 rounded-xl border border-border shadow-sm flex justify-between items-center">
-                    <div className="text-center flex-1">
-                      <div className="text-[11px] text-muted-foreground mb-1">إجمالي الطلبات (الخليج)</div>
-                      <div className="text-xl font-extrabold text-primary">12,450</div>
-                    </div>
-                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                    </div>
-                  </div>
+                <div className="h-7 bg-secondary border-b border-border flex items-center px-3 gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-400"></div>
                 </div>
+                <img src={dashboardImg} alt="لوحة تحكم هلا" className="w-full h-auto block" loading="eager" />
               </div>
             </div>
 
@@ -92,100 +88,131 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Left Column: Illustration */}
+          {/* Left Column: Real Dashboard Screenshot */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative h-[300px] sm:h-[380px] md:h-[500px] w-full flex items-center justify-center lg:justify-end order-1 lg:order-2"
+            className="relative w-full hidden lg:flex items-center justify-center lg:justify-end order-1 lg:order-2 min-h-[500px]"
           >
             {/* Background Blob */}
-            <div className="absolute w-[80%] h-[80%] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div className="absolute w-[85%] h-[85%] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-80 animate-blob"></div>
+            <div className="absolute w-[60%] h-[60%] -bottom-10 -left-10 bg-accent/10 rounded-full filter blur-3xl opacity-60"></div>
             
-            {/* Dashboard Mockup SVG */}
-            <div className="relative z-10 w-full max-w-[500px] shadow-2xl rounded-2xl overflow-hidden border border-border/50 bg-white">
-              {/* Header */}
-              <div className="h-10 bg-secondary border-b border-border flex items-center px-4 gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            {/* Glow ring around image */}
+            <div className="absolute inset-y-4 inset-x-2 bg-gradient-to-tr from-accent/25 via-primary/15 to-accent/15 rounded-[28px] blur-2xl opacity-70" />
+
+            {/* Dashboard browser frame */}
+            <motion.div 
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative z-10 w-full max-w-[580px] shadow-[0_30px_80px_-20px_rgba(45,38,105,0.4)] rounded-2xl overflow-hidden border border-border/50 bg-white"
+            >
+              {/* Browser top bar */}
+              <div className="h-9 bg-gradient-to-b from-[#F4F2F8] to-[#ECE9F2] border-b border-border flex items-center px-4 gap-2 relative" dir="ltr">
+                <div className="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#FEBC2E]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#28C840]"></div>
+                <div className="absolute left-1/2 -translate-x-1/2 bg-white/70 text-[10px] text-primary/50 px-3 py-0.5 rounded-md font-mono">
+                  🔒 seller.halakommers.com
+                </div>
               </div>
               
-              {/* Content */}
-              <div className="p-6 grid grid-cols-2 gap-4 bg-[#FDFDFD]">
-                {/* Stats Card */}
-                <motion.div 
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                  className="col-span-2 bg-white p-4 rounded-xl border border-border shadow-sm flex justify-between items-center"
-                >
-                  <div>
-                    <div className="text-[12px] text-muted-foreground mb-1">إجمالي الطلبات (الخليج)</div>
-                    <div className="text-2xl font-extrabold text-primary">12,450</div>
-                  </div>
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                  </div>
-                </motion.div>
-                
-                {/* Map abstract */}
-                <div className="col-span-1 bg-white p-4 rounded-xl border border-border shadow-sm aspect-square flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-primary/5"></div>
-                  <svg width="80" height="80" viewBox="0 0 100 100" fill="none" className="text-primary/20">
-                    <path d="M50 10C27.9 10 10 27.9 10 50C10 72.1 27.9 90 50 90C72.1 90 90 72.1 90 50C90 27.9 72.1 10 50 10ZM50 82C32.3 82 18 67.7 18 50C18 32.3 32.3 18 50 18C67.7 18 82 32.3 82 50C82 67.7 67.7 82 50 82Z" fill="currentColor"/>
-                    <circle cx="50" cy="50" r="15" fill="currentColor"/>
-                  </svg>
-                  
-                  {/* Pings */}
-                  <motion.div animate={{ scale: [1, 2], opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="absolute top-[40%] right-[40%] w-3 h-3 bg-accent rounded-full"></motion.div>
-                  <div className="absolute top-[40%] right-[40%] w-3 h-3 bg-accent rounded-full"></div>
-                </div>
-                
-                {/* Status List */}
-                <div className="col-span-1 bg-white p-4 rounded-xl border border-border shadow-sm flex flex-col gap-3 justify-center">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                    <div className="h-2 w-16 bg-muted rounded-full"></div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
-                    <div className="h-2 w-12 bg-muted rounded-full"></div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <div className="h-2 w-20 bg-muted rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating Elements */}
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-6 top-20 bg-white p-3 rounded-xl shadow-lg border border-border/50 flex items-center gap-3 z-20"
-            >
-              <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              </div>
-              <div>
-                <div className="text-[10px] text-muted-foreground font-bold">تم تأكيد الطلب</div>
-                <div className="text-[12px] font-bold text-foreground">WhatsApp ✓</div>
+              {/* Real screenshot */}
+              <div className="relative bg-white">
+                <img 
+                  src={dashboardImg} 
+                  alt="لوحة تحكم هلا كوميرس" 
+                  className="w-full h-auto block select-none pointer-events-none"
+                  loading="eager"
+                />
+                {/* Subtle gradient overlay on bottom for polish */}
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
               </div>
             </motion.div>
             
+            {/* Floating: تم تأكيد الطلب */}
             <motion.div 
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -left-4 bottom-20 bg-white p-3 rounded-xl shadow-lg border border-border/50 flex items-center gap-3 z-20"
+              initial={{ opacity: 0, scale: 0.7, x: 30, y: -20 }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7, type: "spring", stiffness: 180 }}
+              className="absolute right-0 top-12 z-20"
             >
-              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-              </div>
-              <div>
-                <div className="text-[10px] text-muted-foreground font-bold">حالة الشحن</div>
-                <div className="text-[12px] font-bold text-foreground">في الطريق للعميل</div>
-              </div>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.5 }}
+                className="bg-white p-3 rounded-2xl shadow-xl border border-border/50 flex items-center gap-3"
+              >
+                <div className="relative w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  <motion.span
+                    animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="absolute inset-0 rounded-full bg-green-400"
+                  />
+                </div>
+                <div>
+                  <div className="text-[10px] text-muted-foreground font-bold leading-none mb-1">تم تأكيد الطلب</div>
+                  <div className="text-[12px] font-extrabold text-foreground leading-none">WhatsApp ✓</div>
+                </div>
+              </motion.div>
+            </motion.div>
+            
+            {/* Floating: حالة الشحن */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.7, x: -30, y: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9, type: "spring", stiffness: 180 }}
+              className="absolute left-0 bottom-32 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                className="bg-white p-3 rounded-2xl shadow-xl border border-border/50 flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <motion.svg
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                  >
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </motion.svg>
+                </div>
+                <div>
+                  <div className="text-[10px] text-muted-foreground font-bold leading-none mb-1">حالة الشحن</div>
+                  <div className="text-[12px] font-extrabold text-foreground leading-none">في الطريق للعميل</div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Floating: نسبة التأكيد */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.7, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1, type: "spring", stiffness: 180 }}
+              className="absolute -bottom-4 right-12 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+                className="bg-gradient-to-br from-primary to-[#1E1A4D] text-white p-3 pl-4 rounded-2xl shadow-xl flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-[10px] text-white/60 font-bold leading-none mb-1">نسبة التأكيد</div>
+                  <div className="text-[14px] font-extrabold leading-none">68% <span className="text-accent">↑</span></div>
+                </div>
+              </motion.div>
             </motion.div>
             
           </motion.div>
