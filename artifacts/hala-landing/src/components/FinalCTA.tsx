@@ -30,12 +30,16 @@ export default function FinalCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 w-full sm:w-auto">
-            <Button className="w-full sm:w-auto bg-accent text-white hover:bg-accent/90 text-[16px] font-bold h-14 px-8 rounded-[10px]" data-testid="button-cta-primary">
-              احجز استشارة مجانية
-            </Button>
-            <Button variant="outline" className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-white text-[16px] font-bold h-14 px-8 rounded-[10px]" data-testid="button-cta-secondary">
-              اطلب عرض أسعار
-            </Button>
+            <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" data-testid="button-cta-primary">
+              <Button className="w-full bg-accent text-white hover:bg-accent/90 text-[16px] font-bold h-14 px-8 rounded-[10px]">
+                احجز استشارة مجانية
+              </Button>
+            </a>
+            <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" data-testid="button-cta-secondary">
+              <Button variant="outline" className="w-full bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-white text-[16px] font-bold h-14 px-8 rounded-[10px]">
+                اطلب عرض أسعار
+              </Button>
+            </a>
           </div>
           
           <div className="text-[13px] text-white/60 font-medium flex items-center justify-center gap-2">

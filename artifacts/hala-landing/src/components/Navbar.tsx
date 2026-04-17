@@ -68,9 +68,11 @@ export default function Navbar() {
           <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-[10px]" data-testid="button-login">
             تسجيل الدخول
           </Button>
-          <Button className="bg-primary text-white hover:bg-primary/90 rounded-[10px] px-6" data-testid="button-start">
-            ابدأ مع هلا
-          </Button>
+          <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" data-testid="button-start">
+            <Button className="bg-primary text-white hover:bg-primary/90 rounded-[10px] px-6">
+              ابدأ مع هلا
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -113,9 +115,11 @@ export default function Navbar() {
             <Button variant="outline" className="w-full border-primary text-primary rounded-[10px]" data-testid="button-mobile-login">
               تسجيل الدخول
             </Button>
-            <Button className="w-full bg-primary text-white rounded-[10px]" data-testid="button-mobile-start">
-              ابدأ مع هلا
-            </Button>
+            <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-start" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full bg-primary text-white rounded-[10px]">
+                ابدأ مع هلا
+              </Button>
+            </a>
           </div>
         </div>
       )}

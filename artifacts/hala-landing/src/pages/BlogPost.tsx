@@ -237,12 +237,11 @@ export default function BlogPost() {
               احجز استشارة مجانية مع فريق هلا، ودعنا نطبّق ما قرأته على متجرك
               فعلياً.
             </p>
-            <Button
-              className="bg-accent hover:bg-accent/90 text-white font-bold rounded-[10px] px-8 py-6 text-base"
-              data-testid="button-article-cta"
-            >
-              ابدأ مع هلا مجاناً
-            </Button>
+            <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" data-testid="button-article-cta">
+              <Button className="bg-accent hover:bg-accent/90 text-white font-bold rounded-[10px] px-8 py-6 text-base">
+                ابدأ مع هلا مجاناً
+              </Button>
+            </a>
           </div>
         </div>
       </article>

@@ -168,7 +168,9 @@ export default function Blog() {
             بشكل صحيح.
           </p>
           <a
-            href="/#contact"
+            href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3.5 rounded-[10px] transition-colors"
             data-testid="link-cta-consultation"
           >

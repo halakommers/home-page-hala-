@@ -61,13 +61,17 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-5 w-full sm:w-auto">
-              <Button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px] flex items-center justify-center gap-2" data-testid="button-hero-primary">
-                <span>ابدأ مع هلا مجاناً</span>
-                <span className="text-lg">←</span>
-              </Button>
-              <Button variant="outline" className="w-full sm:w-auto bg-white border-2 border-primary text-primary hover:bg-primary/5 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px]" data-testid="button-hero-secondary">
-                احجز استشارة
-              </Button>
+              <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" data-testid="button-hero-primary">
+                <Button className="w-full bg-primary text-white hover:bg-primary/90 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px] flex items-center justify-center gap-2">
+                  <span>ابدأ مع هلا مجاناً</span>
+                  <span className="text-lg">←</span>
+                </Button>
+              </a>
+              <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" data-testid="button-hero-secondary">
+                <Button variant="outline" className="w-full bg-white border-2 border-primary text-primary hover:bg-primary/5 text-[15px] md:text-[16px] h-13 md:h-14 px-6 md:px-8 py-3.5 rounded-[10px]">
+                  احجز استشارة
+                </Button>
+              </a>
             </div>
             
             <div className="text-[12px] md:text-[13px] text-muted-foreground font-medium flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1">
