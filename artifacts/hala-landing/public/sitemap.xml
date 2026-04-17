@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
   <url>
     <loc>https://halacommerce.com/</loc>
@@ -44,6 +43,81 @@
       </news:publication>
       <news:publication_date>2026-04-10</news:publication_date>
       <news:title>كيف ترفع نسبة تأكيد طلبات COD إلى 85%</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/best-fulfillment-companies-saudi-arabia-2026</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-17</news:publication_date>
+      <news:title>أفضل 10 شركات Fulfillment في السعودية لعام 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/cash-on-delivery-saudi-arabia-guide</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-17</news:publication_date>
+      <news:title>الدفع عند الاستلام (COD) في السعودية: الدليل الكامل</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/shipping-costs-saudi-arabia-2026</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-17</news:publication_date>
+      <news:title>تكلفة الشحن في السعودية 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/how-to-open-online-store-saudi-arabia-from-egypt</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-17</news:publication_date>
+      <news:title>كيفية فتح متجر إلكتروني في السعودية من مصر</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/dropshipping-saudi-arabia-gulf-guide-2026</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-17</news:publication_date>
+      <news:title>Dropshipping في الخليج 2026: الدليل الكامل</news:title>
     </news:news>
   </url>
 
