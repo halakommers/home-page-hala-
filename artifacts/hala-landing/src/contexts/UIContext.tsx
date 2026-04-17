@@ -19,7 +19,7 @@ export function UIProvider({ children }: { children: ReactNode }) {
 export function useUI(): UIContextValue {
   const ctx = useContext(UIContext);
   if (!ctx) {
-    return { isMobileMenuOpen: false, setMobileMenuOpen: () => {} };
+    throw new Error("useUI must be used within a <UIProvider>");
   }
   return ctx;
 }

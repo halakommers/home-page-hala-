@@ -102,6 +102,23 @@ export default function DashboardShowcase() {
     });
   };
 
+  // Preload the given tab AND its immediate neighbours so hover/focus warms
+  // up the next click in either direction.
+  const preloadWithNeighbors = (id: string) => {
+    const idx = tabs.findIndex(t => t.id === id);
+    if (idx === -1) return;
+    [tabs[idx - 1]?.id, tabs[idx]?.id, tabs[idx + 1]?.id]
+      .filter(Boolean)
+      .forEach(neighbor => preload(neighbor as string));
+  };
+
+  // Always make sure the active tab's image is loaded before showing it
+  // (covers keyboard activation paths that bypass hover/touch).
+  const activateTab = (id: string) => {
+    preload(id);
+    setActiveTab(id);
+  };
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -159,9 +176,10 @@ export default function DashboardShowcase() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                onMouseEnter={() => preload(tab.id)}
-                onTouchStart={() => preload(tab.id)}
+                onClick={() => activateTab(tab.id)}
+                onMouseEnter={() => preloadWithNeighbors(tab.id)}
+                onFocus={() => preloadWithNeighbors(tab.id)}
+                onTouchStart={() => preloadWithNeighbors(tab.id)}
                 className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] md:text-[14px] font-bold transition-all duration-300 ${
                   isActive
                     ? "text-white shadow-lg shadow-primary/20"

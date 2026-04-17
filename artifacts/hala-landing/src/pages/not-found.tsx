@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useSEO } from "@/hooks/useSEO";
 import { Home, BookOpen, HelpCircle, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function NotFound() {
   useSEO({
@@ -110,6 +111,8 @@ export default function NotFound() {
           </Button>
         </Link>
       </motion.div>
+
+      <FloatingWhatsApp />
     </div>
   );
 }
