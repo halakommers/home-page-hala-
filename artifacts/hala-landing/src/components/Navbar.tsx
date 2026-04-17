@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, Calendar } from "lucide-react";
+import { Menu, Sparkles, LogIn } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +11,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useUI } from "@/contexts/UIContext";
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/links";
 
 interface NavLink {
   name: string;
@@ -87,12 +88,16 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-[10px]" data-testid="button-login">
-            تسجيل الدخول
-          </Button>
-          <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" data-testid="button-start">
-            <Button className="bg-primary text-white hover:bg-primary/90 rounded-[10px] px-6">
+        <div className="hidden md:flex items-center gap-3">
+          <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-[10px] gap-2">
+              <LogIn size={15} />
+              تسجيل الدخول
+            </Button>
+          </a>
+          <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-start">
+            <Button className="bg-accent text-white hover:bg-accent/90 rounded-[10px] px-6 gap-2 shadow-md shadow-accent/20">
+              <Sparkles size={15} />
               ابدأ مع هلا
             </Button>
           </a>
@@ -143,25 +148,34 @@ export default function Navbar() {
 
             <div className="px-6 pb-6 pt-4 border-t border-border space-y-3">
               <a
-                href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
+                href={SIGNUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="button-mobile-start"
                 className="block"
               >
-                <Button className="w-full bg-primary text-white rounded-xl h-12 gap-2">
-                  <Calendar size={16} />
-                  ابدأ مع هلا
+                <Button className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl h-12 gap-2 shadow-md shadow-accent/20">
+                  <Sparkles size={16} />
+                  سجّل الآن مجاناً
                 </Button>
               </a>
-              <Button
-                variant="outline"
-                className="w-full border-primary text-primary rounded-xl h-12"
+              <a
+                href={LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 data-testid="button-mobile-login"
+                className="block"
               >
-                تسجيل الدخول
-              </Button>
+                <Button
+                  variant="outline"
+                  className="w-full border-primary text-primary rounded-xl h-12 gap-2"
+                >
+                  <LogIn size={16} />
+                  تسجيل الدخول
+                </Button>
+              </a>
               <p className="text-center text-[12px] text-muted-foreground pt-2">
                 استشارة مجانية • رد خلال 24 ساعة
               </p>
