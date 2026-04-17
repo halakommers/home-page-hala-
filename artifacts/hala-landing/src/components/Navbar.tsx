@@ -16,11 +16,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "الخدمات", href: "#services" },
-    { name: "لمن هلا", href: "#for-whom" },
-    { name: "كيف نعمل", href: "#how-it-works" },
-    { name: "الأسعار", href: "#pricing" },
-    { name: "المدونة", href: "#blog" },
+    { name: "الخدمات", href: "/#services", isRoute: false },
+    { name: "لمن هلا", href: "/#for-whom", isRoute: false },
+    { name: "كيف نعمل", href: "/#how-it-works", isRoute: false },
+    { name: "الأسعار", href: "/#pricing", isRoute: false },
+    { name: "المدونة", href: "/blog", isRoute: true },
   ];
 
   return (
@@ -41,16 +41,27 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-[15px] font-medium text-primary hover:text-accent transition-colors"
-              data-testid={`link-nav-${link.name}`}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-[15px] font-medium text-primary hover:text-accent transition-colors"
+                data-testid={`link-nav-${link.name}`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-[15px] font-medium text-primary hover:text-accent transition-colors"
+                data-testid={`link-nav-${link.name}`}
+              >
+                {link.name}
+              </a>
+            )
+          )}
         </nav>
 
         {/* Desktop Actions */}
@@ -77,16 +88,27 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-border shadow-lg py-4 px-6 flex flex-col gap-4">
           <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-base font-medium text-primary hover:text-accent transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-base font-medium text-primary hover:text-accent transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-base font-medium text-primary hover:text-accent transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
+            )}
           </nav>
           <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
             <Button variant="outline" className="w-full border-primary text-primary rounded-[10px]" data-testid="button-mobile-login">

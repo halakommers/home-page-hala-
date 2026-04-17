@@ -13,7 +13,9 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Brand**: Deep purple (#2D2669) + burnt orange (#E85D1F)
 - **Font**: Cairo (Arabic) + Inter (English/numbers)
 - **Sections**: 13 sections — Navbar, Hero, Trust Bar, Why Hala, Services Grid (6), For Whom (5 audiences), Order Journey timeline (6 steps), Stats, Growth Support, Testimonials, FAQ (9 items), Final CTA, Footer
-- **Stack**: React, Vite, Tailwind CSS, Framer Motion, Radix UI accordion, lucide-react, react-icons
+- **Routes**: `/` (Landing), `/blog` (Blog index), `/blog/:slug` (Article page)
+- **Blog**: 2 articles in `src/data/blogPosts.ts` — Saudi market guide for Egyptian sellers, Raising COD confirmation rate. Article body uses structured ContentBlock types (paragraph, h2, h3, list, callout, quote).
+- **Stack**: React, Vite, Tailwind CSS, Framer Motion, Radix UI accordion, lucide-react, react-icons, wouter
 
 ## Stack
 
