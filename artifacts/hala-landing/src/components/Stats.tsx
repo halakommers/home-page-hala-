@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import CommerceBackdrop from "@/components/CommerceBackdrop";
 
 function Counter({ from = 0, to, duration = 2, suffix = "" }: { from?: number, to: number, duration?: number, suffix?: string }) {
   const ref = useRef(null);
@@ -38,37 +39,27 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-24 bg-[#1E1A4D] relative overflow-hidden text-center">
-      {/* Subtle geometric pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-5 pointer-events-none" 
-        style={{
-          backgroundImage: "radial-gradient(#ffffff 2px, transparent 2px)",
-          backgroundSize: "32px 32px"
-        }}
-      ></div>
-
-      <div className="container max-w-[1280px] mx-auto px-6 relative z-10">
+    <section className="section-surface py-14 md:py-24 bg-primary relative text-center">
+      <CommerceBackdrop variant="deep" />
+      <div className="container max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">أرقام تتحدث</span>
-          <h2 className="text-[28px] md:text-[44px] font-bold text-white leading-[1.2] mb-16">
-            لماذا يثق بنا البائعون في الخليج؟
+          <span className="text-accent font-semibold text-[14px] tracking-normal mb-4 block">إشارات ثقة قبل الاشتراك</span>
+          <h2 className="text-[27px] md:text-[42px] font-bold text-white leading-[1.25] mb-10 md:mb-14">
+            تشغيل منظم يقدر يكبر مع طلباتك
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className={`flex flex-col items-center justify-center ${
-                  index !== stats.length - 1 ? 'md:border-l md:border-white/10' : ''
-                }`}
+                className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] px-3 py-6 md:py-8"
               >
-                <div className="text-[40px] md:text-[64px] font-extrabold text-accent leading-none mb-3" dir="ltr">
+                <div className="text-[34px] md:text-[58px] font-bold text-accent leading-none mb-3" dir="ltr">
                   <Counter to={stat.num} suffix={stat.suffix} />
                 </div>
                 <div className="text-[15px] md:text-[16px] font-medium text-white/90">

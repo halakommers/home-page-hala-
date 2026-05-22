@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LogIn, X, Sparkles } from "lucide-react";
-import { LOGIN_URL, SIGNUP_URL } from "@/lib/links";
+import { CalendarCheck, X, Sparkles } from "lucide-react";
+import { CAL_URL, SIGNUP_URL } from "@/lib/links";
 
 export default function MobileStickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -55,17 +55,17 @@ export default function MobileStickyCTA() {
               data-testid="button-mcta-signup"
             >
               <Sparkles size={16} />
-              سجّل الآن مجاناً
+              افتح حساب بائع
             </a>
             <a
-              href={LOGIN_URL}
+              href={CAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-white border-2 border-primary text-primary font-bold text-[14px] py-[10px] rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
-              data-testid="button-mcta-login"
+              className="flex-1 bg-white border-2 border-primary text-primary font-bold text-[13px] py-[10px] rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform"
+              data-testid="button-mcta-call"
             >
-              <LogIn size={15} />
-              دخول
+              <CalendarCheck size={15} />
+              مكالمة
             </a>
           </div>
         </motion.div>

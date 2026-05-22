@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -80,8 +80,8 @@
   --elevate-2: rgba(0,0,0, .08);
 
   --background: 0 0% 100%;
-  --foreground: 237 26% 14%;
-  --border: 249 33% 91%;
+  --foreground: 247 35% 13%;
+  --border: 251 24% 90%;
   --card: 0 0% 100%;
   --card-foreground: 237 26% 14%;
   --card-border: 249 33% 91%;
@@ -98,11 +98,11 @@
   --popover-border: 249 33% 91%;
   --primary: 246 47% 28%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 249 33% 98%;
+  --secondary: 251 36% 97%;
   --secondary-foreground: 237 26% 14%;
-  --muted: 249 33% 98%;
-  --muted-foreground: 247 11% 52%;
-  --accent: 17 80% 51%;
+  --muted: 251 36% 97%;
+  --muted-foreground: 248 14% 43%;
+  --accent: 17 82% 52%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
@@ -114,18 +114,18 @@
   --chart-4: 247 11% 52%;
   --chart-5: 249 33% 91%;
 
-  --app-font-sans: 'Cairo', sans-serif;
+  --app-font-sans: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
-  --shadow-2xs: 0px 2px 0px 0px hsl(249 33% 91% / 0.2);
-  --shadow-xs: 0px 2px 0px 0px hsl(249 33% 91% / 0.3);
-  --shadow-sm: 0px 2px 0px 0px hsl(249 33% 91% / 0.4), 0px 1px 2px -1px hsl(249 33% 91% / 0.1);
-  --shadow: 0px 2px 0px 0px hsl(249 33% 91% / 0.5), 0px 1px 2px -1px hsl(249 33% 91% / 0.1);
-  --shadow-md: 0px 2px 0px 0px hsl(249 33% 91% / 0.6), 0px 2px 4px -1px hsl(249 33% 91% / 0.2);
-  --shadow-lg: 0px 2px 0px 0px hsl(249 33% 91% / 0.7), 0px 4px 6px -1px hsl(249 33% 91% / 0.3);
-  --shadow-xl: 0px 2px 0px 0px hsl(249 33% 91% / 0.8), 0px 8px 10px -1px hsl(249 33% 91% / 0.4);
-  --shadow-2xl: 0px 2px 0px 0px hsl(249 33% 91% / 0.9);
+  --shadow-2xs: 0 1px 2px hsl(247 35% 13% / 0.04);
+  --shadow-xs: 0 2px 8px hsl(247 35% 13% / 0.04);
+  --shadow-sm: 0 6px 18px hsl(247 35% 13% / 0.05);
+  --shadow: 0 10px 28px hsl(247 35% 13% / 0.06);
+  --shadow-md: 0 14px 36px hsl(247 35% 13% / 0.08);
+  --shadow-lg: 0 18px 48px hsl(247 35% 13% / 0.09);
+  --shadow-xl: 0 24px 64px hsl(247 35% 13% / 0.10);
+  --shadow-2xl: 0 28px 80px hsl(247 35% 13% / 0.12);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -223,6 +223,207 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    background: hsl(var(--background));
+    letter-spacing: 0;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.22);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .section-surface {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brand-shell {
+    border: 1px solid hsl(var(--border));
+    background: hsl(0 0% 100% / 0.94);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(14px);
+  }
+
+  .brand-gradient-text {
+    color: hsl(var(--primary));
+  }
+
+  .brand-pill {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--secondary));
+    box-shadow: none;
+  }
+
+  .brand-card {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-xs);
+  }
+
+  .conversion-button {
+    box-shadow: 0 14px 30px hsl(var(--accent) / 0.22);
+  }
+
+  .commerce-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .commerce-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.075;
+    background-image:
+      linear-gradient(90deg, hsl(var(--primary) / 0.16) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(var(--primary) / 0.16) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 50% 32%, black, transparent 72%);
+  }
+
+  .commerce-backdrop-warm .commerce-grid {
+    background-image:
+      linear-gradient(90deg, hsl(var(--accent) / 0.16) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(var(--primary) / 0.12) 1px, transparent 1px);
+  }
+
+  .commerce-backdrop-deep .commerce-grid {
+    opacity: 0.1;
+    background-image:
+      linear-gradient(90deg, hsl(0 0% 100% / 0.18) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(0 0% 100% / 0.12) 1px, transparent 1px);
+  }
+
+  .commerce-route {
+    position: absolute;
+    width: min(74vw, 920px);
+    height: min(34vw, 380px);
+    border: 1px dashed hsl(var(--accent) / 0.26);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 999px;
+    transform: rotate(-8deg);
+  }
+
+  .commerce-route-a {
+    top: 7%;
+    right: -12%;
+  }
+
+  .commerce-route-b {
+    left: -18%;
+    bottom: 8%;
+    transform: rotate(13deg);
+    border-color: hsl(var(--primary) / 0.18);
+    border-right-color: transparent;
+    border-top-color: transparent;
+  }
+
+  .commerce-backdrop-deep .commerce-route {
+    border-color: hsl(0 0% 100% / 0.18);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .commerce-icon-3d {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--primary));
+    border: 1px solid hsl(0 0% 100% / 0.75);
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, hsl(0 0% 100% / 0.96), hsl(var(--secondary) / 0.82));
+    box-shadow:
+      0 18px 38px hsl(var(--primary) / 0.12),
+      inset 8px 8px 18px hsl(0 0% 100% / 0.95),
+      inset -8px -8px 16px hsl(var(--primary) / 0.08);
+    opacity: 0.54;
+    transform-style: preserve-3d;
+    animation: icon-float 8s ease-in-out infinite;
+  }
+
+  .commerce-icon-3d:nth-of-type(odd) {
+    color: hsl(var(--accent));
+    animation-delay: -2s;
+  }
+
+  .commerce-icon-3d::after {
+    content: "";
+    position: absolute;
+    inset: auto 8px -8px;
+    height: 12px;
+    border-radius: 999px;
+    background: hsl(var(--primary) / 0.08);
+    filter: blur(7px);
+    transform: translateZ(-1px);
+  }
+
+  .commerce-backdrop-deep .commerce-icon-3d {
+    color: white;
+    border-color: hsl(0 0% 100% / 0.13);
+    background:
+      linear-gradient(145deg, hsl(0 0% 100% / 0.16), hsl(0 0% 100% / 0.055));
+    box-shadow:
+      0 18px 38px hsl(0 0% 0% / 0.18),
+      inset 8px 8px 18px hsl(0 0% 100% / 0.1),
+      inset -8px -8px 18px hsl(0 0% 0% / 0.13);
+    opacity: 0.26;
+  }
+
+  .proof-chip {
+    border: 1px solid hsl(var(--border));
+    background: hsl(0 0% 100% / 0.9);
+    box-shadow: var(--shadow-xs);
+  }
+}
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--tw-rotate, 0deg));
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(var(--tw-rotate, 0deg));
+  }
+}
+
+@media (max-width: 767px) {
+  .commerce-grid {
+    background-size: 32px 32px;
+    opacity: 0.05;
+  }
+
+  .commerce-route {
+    width: 120vw;
+    height: 54vw;
+    opacity: 0.55;
+  }
+
+  .commerce-icon-3d {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    opacity: 0.22;
+  }
+
+  .commerce-icon-3d svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

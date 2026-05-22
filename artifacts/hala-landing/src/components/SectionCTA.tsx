@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CAL_URL } from "@/lib/links";
+import { ArrowLeft } from "lucide-react";
+import { SIGNUP_URL } from "@/lib/links";
 
 export default function SectionCTA() {
   return (
@@ -9,11 +10,12 @@ export default function SectionCTA() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5 }}
-      className="my-12 md:my-16 flex justify-center"
+      className="my-7 md:my-10 flex justify-center px-4"
     >
-      <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="w-full max-w-xs sm:max-w-none sm:w-auto">
-        <Button className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 rounded-[12px] px-6 h-13 md:h-14 shadow-lg shadow-primary/20 animate-pulse-subtle">
-          ابدأ الآن
+      <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer" className="w-full max-w-xs sm:max-w-none sm:w-auto">
+        <Button className="conversion-button w-full sm:w-auto bg-accent text-white hover:bg-accent/90 rounded-lg px-7 h-12 md:h-13">
+          افتح حساب بائع الآن
+          <ArrowLeft size={17} />
         </Button>
       </a>
     </motion.div>

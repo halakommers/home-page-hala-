@@ -1,5 +1,5 @@
-import { SiX, SiInstagram, SiYoutube } from "react-icons/si";
-import { Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { CAL_URL } from "@/lib/links";
 
 export default function Footer() {
   return (
@@ -18,17 +18,17 @@ export default function Footer() {
               شريكك التشغيلي للتجارة الإلكترونية في الخليج
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="Twitter/X">
-                <SiX size={16} />
+              <a href="https://twitter.com/HalaCommerce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="Twitter/X">
+                <Twitter size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="Instagram">
-                <SiInstagram size={16} />
+              <a href="https://www.instagram.com/halacommerce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="Instagram">
+                <Instagram size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/halacommerce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="YouTube">
-                <SiYoutube size={18} />
+              <a href="https://www.youtube.com/@HalaCommerce" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-white/40 transition-colors" aria-label="YouTube">
+                <Youtube size={18} />
               </a>
             </div>
           </div>
@@ -37,11 +37,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-[16px] mb-6">الشركة</h4>
             <ul className="flex flex-col gap-4">
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">عن هلا</a></li>
+              <li><a href="/#services" className="hover:text-accent transition-colors text-[15px]">عن هلا</a></li>
               <li><a href="#services" className="hover:text-accent transition-colors text-[15px]">الخدمات</a></li>
               <li><a href="#for-whom" className="hover:text-accent transition-colors text-[15px]">لمن هلا</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">قصص نجاح</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">اتصل بنا</a></li>
+              <li><a href="/#growth" className="hover:text-accent transition-colors text-[15px]">قصص نجاح</a></li>
+              <li><a href={CAL_URL} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors text-[15px]">اتصل بنا</a></li>
             </ul>
           </div>
 
@@ -49,10 +49,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-[16px] mb-6">الموارد</h4>
             <ul className="flex flex-col gap-4">
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">المدونة</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">الأسئلة الشائعة</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">مركز الدعم</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors text-[15px]">API</a></li>
+              <li><a href="/blog" className="hover:text-accent transition-colors text-[15px]">المدونة</a></li>
+              <li><a href="/#faq" className="hover:text-accent transition-colors text-[15px]">الأسئلة الشائعة</a></li>
+              <li><a href="/help" className="hover:text-accent transition-colors text-[15px]">مركز الدعم</a></li>
+              <li><a href="/help" className="hover:text-accent transition-colors text-[15px]">API</a></li>
             </ul>
           </div>
 
@@ -75,9 +75,9 @@ export default function Footer() {
             © 2026 هلا كوميرس. جميع الحقوق محفوظة.
           </div>
           <div className="flex items-center gap-6 text-[14px]">
-            <a href="#" className="hover:text-white transition-colors">شروط الخدمة</a>
+            <a href="/help" className="hover:text-white transition-colors">شروط الخدمة</a>
             <span className="text-white/20">|</span>
-            <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+            <a href="/help" className="hover:text-white transition-colors">سياسة الخصوصية</a>
           </div>
         </div>
       </div>

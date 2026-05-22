@@ -9,6 +9,7 @@ import {
   FileText,
   CheckCircle2,
 } from "lucide-react";
+import CommerceBackdrop from "@/components/CommerceBackdrop";
 
 import dashOverviewLg from "@/assets/dashboards/dash_10.15.55_lg.webp";
 import dashOverviewSm from "@/assets/dashboards/dash_10.15.55_sm.webp";
@@ -124,7 +125,6 @@ export default function DashboardShowcase() {
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
-  const blobY = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
     <section
@@ -134,14 +134,7 @@ export default function DashboardShowcase() {
       dir="rtl"
       style={{ position: "relative" }}
     >
-      <motion.div
-        style={{ y: blobY }}
-        className="absolute top-20 -right-32 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none"
-      />
-      <motion.div
-        style={{ y: blobY }}
-        className="absolute bottom-10 -left-32 w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl pointer-events-none"
-      />
+      <CommerceBackdrop variant="light" />
 
       <div className="container max-w-[1280px] mx-auto px-6 relative">
         <motion.div
@@ -263,7 +256,7 @@ export default function DashboardShowcase() {
                   <div className="w-12" />
                 </div>
 
-                <div className="relative bg-white aspect-[16/12] md:aspect-[16/11] overflow-hidden">
+                <div className="relative bg-white aspect-[1280/817] overflow-hidden p-2 md:p-3">
                   <AnimatePresence mode="wait">
                     {tabs.map(tab => (
                       tab.id === active.id && loadedTabs.has(tab.id) && (
@@ -273,7 +266,7 @@ export default function DashboardShowcase() {
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.98 }}
                           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                          className="absolute inset-0"
+                          className="absolute inset-2 md:inset-3"
                         >
                           <source media="(min-width: 768px)" srcSet={tab.imageLg} />
                           <img
@@ -282,7 +275,7 @@ export default function DashboardShowcase() {
                             width="1280"
                             height="817"
                             loading="lazy"
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-contain object-center rounded-xl"
                           />
                         </motion.picture>
                       )

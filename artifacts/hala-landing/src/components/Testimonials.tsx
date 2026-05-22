@@ -1,34 +1,36 @@
 import { motion } from "framer-motion";
+import CommerceBackdrop from "@/components/CommerceBackdrop";
 
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "كنت أعاني من نسبة تأكيد 35%، بعد 60 يوم مع هلا وصلت لـ 72%. الفرق في وقت الاتصال وأسلوب الفريق.",
-      author: "محمد العتيبي",
-      role: "صاحب متجر — الرياض",
+      quote: "متجر عناية كان يعاني من طلبات COD كثيرة لا تكتمل. بعد تنظيم التأكيد خلال أول ساعتين، ارتفعت نسبة التأكيد من 38% إلى 69% خلال أول 45 يوم.",
+      author: "متجر عناية",
+      role: "جدة — تم إخفاء الاسم حفاظاً على الخصوصية",
+      initials: "ع"
+    },
+    {
+      quote: "براند منتجات منزلية نقل مخزونه داخل السعودية بدلاً من الشحن الخارجي لكل طلب. متوسط التسليم انخفض من 9 أيام إلى 3 أيام، والمرتجعات قلت بوضوح.",
+      author: "براند منتجات منزلية",
+      role: "السعودية — نموذج من واقع التشغيل",
       initials: "م"
     },
     {
-      quote: "أول مرة أشحن بدون صداع. التتبع اللحظي والتحويل في أسبوع غيّر طريقة إدارتي لمخزوني.",
-      author: "سارة المطيري",
-      role: "صاحبة براند عناية — جدة",
-      initials: "س"
-    },
-    {
-      quote: "من 10 طلبات لـ 300 طلب شهرياً بنفس الشريك. هلا معي من البداية.",
-      author: "فيصل الشمري",
-      role: "مسوّق ديجيتال — الكويت",
-      initials: "ف"
+      quote: "مسوق منتج واحد بدأ باختبار صغير، ثم وصل إلى أكثر من 300 طلب شهرياً بعد ضبط التوريد والتخزين والتأكيد والتحصيل في مسار واحد.",
+      author: "مسوق منتج واحد",
+      role: "الخليج — قصة نجاح تشغيلية",
+      initials: "ن"
     }
   ];
 
   return (
-    <section className="py-16 md:py-32 bg-secondary">
-      <div className="container max-w-[1280px] mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">آراء البائعين</span>
-          <h2 className="text-[28px] md:text-[44px] font-bold text-foreground leading-[1.2] max-w-2xl mx-auto">
-            بائعون رفعوا نسبة تسليمهم معنا بأكثر من الضعف
+    <section className="section-surface py-14 md:py-28 bg-secondary">
+      <CommerceBackdrop variant="warm" />
+      <div className="container max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 md:mb-14">
+          <span className="brand-pill inline-block text-primary font-semibold text-[14px] tracking-normal mb-4 rounded-full px-4 py-2">دليل من واقع التشغيل</span>
+          <h2 className="text-[27px] md:text-[44px] font-bold text-foreground leading-[1.22] max-w-3xl mx-auto">
+            أمثلة على مشاكل تشغيلية نحلها للبائعين
           </h2>
         </div>
 
@@ -40,7 +42,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-8 border border-border shadow-sm flex flex-col"
+              className="bg-white rounded-2xl p-6 md:p-8 border border-border shadow-sm flex flex-col"
             >
               <div className="text-accent text-4xl font-serif mb-4 opacity-50">"</div>
               <p className="text-[17px] text-foreground leading-[1.7] italic mb-8 flex-grow">

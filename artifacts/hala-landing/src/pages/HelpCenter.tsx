@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useSEO } from "@/hooks/useSEO";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
@@ -548,75 +548,64 @@ export default function HelpCenter() {
   const currentCategory = selectedCat ? categories.find(c => c.id === selectedCat) : null;
 
   return (
-    <div className="min-h-screen bg-[#F8F6FC] font-cairo" dir="rtl">
+    <div className="min-h-screen bg-background font-sans" dir="rtl">
 
-      {/* ─── Help Center Navbar ─── */}
-      <header className="bg-primary text-white sticky top-0 z-50 shadow-lg">
-        <div className="container max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex flex-col items-start gap-0 group">
-            <div className="flex items-center gap-1">
-              <span className="text-xl font-extrabold leading-none">هلا كوميرس</span>
-              <span className="w-2 h-2 rounded-full bg-accent mt-1"></span>
-            </div>
-            <span className="text-[11px] text-white/60 leading-none">مركز المساعدة</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-[14px] font-medium text-white/80">
-            <button
-              onClick={() => { setSelectedCat(null); setQuery(""); }}
-              className="hover:text-white transition-colors"
-            >
-              الرئيسية
-            </button>
-            <button
-              onClick={() => { setSelectedCat(null); setQuery(""); }}
-              className="hover:text-white transition-colors"
-            >
-              الأقسام
-            </button>
-            <a
-              href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              الأسئلة الشائعة
-            </a>
-            <Link href="/" className="hover:text-white transition-colors">
-              العودة للموقع
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       {/* ─── Hero ─── */}
-      <section className="bg-gradient-to-b from-primary to-[#1E1A4D] pt-14 pb-10 text-white text-center">
-        <div className="container max-w-[860px] mx-auto px-6">
+      <section className="bg-white pt-28 md:pt-32 pb-10 text-primary text-center relative overflow-hidden border-b border-border">
+        <motion.div
+          aria-hidden="true"
+          animate={{ y: [0, 14, 0], x: [0, -8, 0] }}
+          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+          className="absolute -right-20 top-16 h-64 w-64 rounded-full bg-primary/[0.055] blur-3xl"
+        />
+        <motion.div
+          aria-hidden="true"
+          animate={{ y: [0, -12, 0], x: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
+          className="absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-accent/[0.07] blur-3xl"
+        />
+        <div className="container max-w-[860px] mx-auto px-4 sm:px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             {currentCategory && (
               <button
                 onClick={() => setSelectedCat(null)}
-                className="flex items-center gap-1.5 text-white/60 text-[13px] mb-4 mx-auto hover:text-white transition-colors"
+                className="flex items-center gap-1.5 text-primary/55 text-[13px] mb-4 mx-auto hover:text-primary transition-colors"
               >
                 <Home size={13} /> الرئيسية <ChevronRight size={13} /> {currentCategory.title}
               </button>
             )}
-            <h1 className="text-[28px] md:text-[44px] font-extrabold leading-[1.2] mb-3">
+            <motion.div
+              animate={{ y: [0, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent"
+            >
+              {currentCategory ? <currentCategory.icon size={23} /> : <Search size={23} />}
+            </motion.div>
+            <h1 className="text-[28px] md:text-[44px] font-bold leading-[1.2] mb-3">
               {currentCategory ? currentCategory.title : "كيف يمكننا مساعدتك اليوم؟"}
             </h1>
-            <p className="text-white/65 text-[15px] md:text-[17px] mb-8">
+            <p className="text-primary/62 text-[15px] md:text-[17px] mb-8 leading-[1.8]">
               {currentCategory
                 ? currentCategory.description
                 : "ابحث في أكثر من 30 مقال ودليل شامل لكل ما يخص التوريد والشحن والتخزين"}
             </p>
             {!currentCategory && (
               <div className="relative max-w-[560px] mx-auto">
-                <Search size={18} className="absolute top-1/2 -translate-y-1/2 right-4 text-primary/40" />
+                <motion.div
+                  animate={{ scale: [1, 1.08, 1] }}
+                  transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+                  className="absolute top-1/2 -translate-y-1/2 right-4 text-primary/40"
+                >
+                  <Search size={18} />
+                </motion.div>
                 <input
                   type="text"
                   value={query}
                   onChange={e => setQuery(e.target.value)}
                   placeholder="ابحث عن: تأكيد الطلبات، أسعار التخزين، سياسة المنتجات..."
-                  className="w-full bg-white text-primary placeholder:text-primary/40 rounded-[12px] px-5 pr-12 py-4 text-[15px] shadow-lg outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full bg-white text-primary placeholder:text-primary/40 rounded-xl border border-border px-5 pr-12 py-4 text-[15px] shadow-sm outline-none focus:ring-2 focus:ring-accent/40"
                 />
               </div>
             )}
@@ -625,35 +614,40 @@ export default function HelpCenter() {
       </section>
 
       {/* ─── Filter tabs ─── */}
-      {!currentCategory && !query && (
-        <div className="bg-white border-b border-[#E8E5F2] shadow-sm sticky top-16 z-40">
-          <div className="container max-w-[1280px] mx-auto px-6 flex items-center gap-2 py-3 overflow-x-auto">
-            <span className="text-[13px] font-bold text-primary bg-primary/10 px-4 py-1.5 rounded-full whitespace-nowrap flex items-center gap-1.5">
+      <div className="bg-white/95 border-b border-border shadow-xs sticky top-16 z-40 backdrop-blur-xl">
+        <div className="container max-w-[1280px] mx-auto px-4 sm:px-6 flex items-center gap-2 py-3 overflow-x-auto">
+          <button
+            onClick={() => { setSelectedCat(null); setQuery(""); }}
+            className={`text-[13px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap flex items-center gap-1.5 transition-colors ${
+              !currentCategory ? "text-primary bg-primary/10" : "text-primary/60 hover:text-primary hover:bg-secondary"
+            }`}
+          >
               <Boxes size={13} /> كل الأقسام
-            </span>
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCat(cat.id)}
-                className="text-[13px] font-medium text-primary/60 hover:text-primary hover:bg-primary/5 px-4 py-1.5 rounded-full transition-colors whitespace-nowrap"
-              >
-                {cat.title}
-              </button>
-            ))}
-            <a
-              href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[13px] font-medium text-accent hover:text-accent/80 px-4 py-1.5 rounded-full transition-colors whitespace-nowrap flex items-center gap-1.5 mr-auto"
+          </button>
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => { setSelectedCat(cat.id); setQuery(""); }}
+              className={`text-[13px] font-medium px-4 py-1.5 rounded-full transition-colors whitespace-nowrap ${
+                currentCategory?.id === cat.id ? "text-primary bg-primary/10 font-bold" : "text-primary/60 hover:text-primary hover:bg-secondary"
+              }`}
             >
-              <MessageCircle size={13} /> تواصل معنا
-            </a>
-          </div>
+              {cat.title}
+            </button>
+          ))}
+          <a
+            href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[13px] font-medium text-accent hover:text-accent/80 px-4 py-1.5 rounded-full transition-colors whitespace-nowrap flex items-center gap-1.5 mr-auto"
+          >
+            <MessageCircle size={13} /> تواصل معنا
+          </a>
         </div>
-      )}
+      </div>
 
       {/* ─── Main content ─── */}
-      <main className="container max-w-[1100px] mx-auto px-6 py-12">
+      <main className="container max-w-[1100px] mx-auto px-4 sm:px-6 py-10 md:py-12">
 
         {/* Search results */}
         {query && (
@@ -666,14 +660,15 @@ export default function HelpCenter() {
             {searchResults.length > 0 ? (
               <div className="space-y-3 max-w-[860px]">
                 {searchResults.map(a => (
-                  <button
+                  <motion.button
                     key={a.id}
+                    whileHover={{ x: -4 }}
                     onClick={() => { setSelectedCat(a.catId); setQuery(""); }}
-                    className="w-full text-right bg-white border border-[#E8E5F2] rounded-2xl p-4 hover:border-accent/40 hover:shadow-sm transition-all"
+                    className="w-full text-right brand-card rounded-2xl p-4 hover:border-accent/40 transition-all"
                   >
                     <p className="font-bold text-primary text-[15px] mb-1">{a.title}</p>
                     <p className="text-[12px] text-accent font-medium">{a.catTitle}</p>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             ) : (
@@ -695,7 +690,7 @@ export default function HelpCenter() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              <h2 className="text-[22px] md:text-[28px] font-extrabold text-primary text-center mb-10">أقسام مركز المساعدة</h2>
+              <h2 className="text-[22px] md:text-[28px] font-bold text-primary text-center mb-10">أقسام مركز المساعدة</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {categories.map((cat, i) => (
                   <motion.button
@@ -703,13 +698,19 @@ export default function HelpCenter() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.35, delay: i * 0.07 }}
+                    whileHover={{ y: -5 }}
+                    whileTap={{ scale: 0.99 }}
                     onClick={() => setSelectedCat(cat.id)}
-                    className="text-right bg-white border border-[#E8E5F2] rounded-2xl p-6 hover:shadow-md hover:border-accent/30 transition-all group"
+                    className="text-right brand-card rounded-2xl p-5 md:p-6 hover:border-accent/30 transition-all group"
                   >
-                    <div className={`w-12 h-12 rounded-xl ${cat.iconBg} flex items-center justify-center mb-4`}>
+                    <motion.div
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ repeat: Infinity, duration: 3.4, ease: "easeInOut", delay: i * 0.2 }}
+                      className={`w-12 h-12 rounded-xl ${cat.iconBg} flex items-center justify-center mb-4`}
+                    >
                       <cat.icon size={22} className={cat.iconColor} />
-                    </div>
-                    <h3 className={`font-extrabold text-[17px] mb-2 group-hover:text-accent transition-colors ${cat.iconColor}`}>
+                    </motion.div>
+                    <h3 className={`font-bold text-[17px] mb-2 group-hover:text-accent transition-colors ${cat.iconColor}`}>
                       {cat.title}
                     </h3>
                     <p className="text-[13px] text-primary/60 leading-[1.7] mb-4">{cat.description}</p>
@@ -722,9 +723,15 @@ export default function HelpCenter() {
               </div>
 
               {/* Contact bar */}
-              <div className="mt-14 bg-white border border-[#E8E5F2] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45 }}
+                className="mt-14 brand-card rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+              >
                 <div>
-                  <p className="font-extrabold text-primary text-[16px] mb-1">لم تجد إجابتك؟</p>
+                  <p className="font-bold text-primary text-[16px] mb-1">لم تجد إجابتك؟</p>
                   <p className="text-[13px] text-primary/60">فريقنا جاهز للإجابة على أي سؤال خلال 24 ساعة.</p>
                 </div>
                 <div className="flex gap-3">
@@ -732,18 +739,18 @@ export default function HelpCenter() {
                     href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-primary text-white font-bold px-5 py-2.5 rounded-[10px] text-[14px] hover:bg-primary/90 transition-colors"
+                    className="flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg text-[14px] hover:bg-primary/90 transition-colors"
                   >
                     <Phone size={15} /> احجز استشارة
                   </a>
                   <a
                     href="mailto:support@halakommers.com"
-                    className="flex items-center gap-2 border border-[#E8E5F2] text-primary font-bold px-5 py-2.5 rounded-[10px] text-[14px] hover:bg-primary/5 transition-colors"
+                    className="flex items-center gap-2 border border-border text-primary font-semibold px-5 py-2.5 rounded-lg text-[14px] hover:bg-primary/5 transition-colors"
                   >
                     <Mail size={15} /> راسلنا
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         )}
@@ -772,9 +779,9 @@ export default function HelpCenter() {
                     <AccordionItem
                       key={article.id}
                       value={article.id}
-                      className="bg-white border border-[#E8E5F2] rounded-2xl px-5 overflow-hidden"
+                      className="bg-white border border-border rounded-2xl px-5 overflow-hidden shadow-xs"
                     >
-                      <AccordionTrigger className="text-[15px] font-bold text-primary py-4 hover:no-underline">
+                      <AccordionTrigger className="text-[15px] font-semibold text-primary py-4 hover:no-underline hover:text-accent transition-colors">
                         {article.title}
                       </AccordionTrigger>
                       <AccordionContent className="pb-5 text-primary/80 leading-[1.85]">
@@ -785,14 +792,14 @@ export default function HelpCenter() {
                 </Accordion>
 
                 {/* End CTA */}
-                <div className="mt-10 bg-gradient-to-br from-primary to-[#1E1A4D] rounded-2xl p-6 text-white text-center">
-                  <p className="font-extrabold text-[18px] mb-2">لديك سؤال إضافي؟</p>
+                <div className="mt-10 bg-primary rounded-2xl p-6 text-white text-center">
+                  <p className="font-bold text-[18px] mb-2">لديك سؤال إضافي؟</p>
                   <p className="text-white/70 text-[14px] mb-5">احجز استشارة مجانية مع فريقنا خلال 30 دقيقة.</p>
                   <a
                     href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold px-6 py-3 rounded-[10px] transition-colors text-[14px]"
+                    className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-[14px]"
                   >
                     <ArrowLeft size={16} /> احجز استشارة مجانية
                   </a>

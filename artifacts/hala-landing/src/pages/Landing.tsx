@@ -15,21 +15,21 @@ import SectionCTA from "@/components/SectionCTA";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
-import StructuredData, { organizationSchema, websiteSchema, serviceSchema } from "@/components/StructuredData";
+import StructuredData, { faqSchema, organizationSchema, serviceSchema, websiteSchema } from "@/components/StructuredData";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Landing() {
   useSEO({
-    title: "شريكك التشغيلي للتجارة الإلكترونية في الخليج",
-    description: "هلا كوميرس — شريك التشغيل المتكامل للتجارة الإلكترونية في الخليج. توريد، تخزين، تأكيد طلبات، شحن، وتحصيل نقدي في السعودية والإمارات والكويت والبحرين وقطر وعُمان.",
-    keywords: "تجارة إلكترونية خليج, شحن السعودية, تخزين منتجات, تأكيد طلبات COD, فولفيلمنت, هلا كوميرس, e-commerce fulfillment Saudi Arabia, فولفيلمنت الخليج",
+    title: "فولفيلمنت وتشغيل تجارة إلكترونية في السعودية والخليج",
+    description: "هلا كوميرس تساعد البائعين على تشغيل متاجرهم في السعودية والخليج: توريد من الصين، تخزين، تغليف، تأكيد طلبات COD، شحن، تحصيل، ولوحة تحكم عربية.",
+    keywords: "فولفيلمنت السعودية, فولفيلمنت الخليج, تشغيل متجر إلكتروني, تخزين وشحن للمتاجر, تأكيد طلبات COD, شحن الدفع عند الاستلام, تحصيل نقدي, هلا كوميرس, ecommerce fulfillment Saudi Arabia, logistics GCC",
     canonical: "/",
     ogType: "website",
   });
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground w-full overflow-x-hidden">
-      <StructuredData schema={[organizationSchema, websiteSchema, serviceSchema]} id="landing-schema" />
+      <StructuredData schema={[organizationSchema, websiteSchema, serviceSchema, faqSchema]} id="landing-schema" />
       <Navbar />
       <main>
         <Hero />

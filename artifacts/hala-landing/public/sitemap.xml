@@ -128,4 +128,49 @@
     </news:news>
   </url>
 
+  <url>
+    <loc>https://halacommerce.com/blog/fulfillment-warehouses-saudi-arabia-guide</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-18</news:publication_date>
+      <news:title>مستودعات Fulfillment في السعودية: كيف تختار الشريك المناسب؟</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/storage-and-packaging-costs-for-ecommerce</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-18</news:publication_date>
+      <news:title>تكلفة التخزين والتغليف للمتاجر الإلكترونية: كيف تحسبها صح؟</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://halacommerce.com/blog/salla-zid-shopify-fulfillment-integration</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>مدونة هلا كوميرس</news:name>
+        <news:language>ar</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-18</news:publication_date>
+      <news:title>ربط سلة وزد وشوبيفاي مع الفولفيلمنت: ماذا يحتاج متجرك؟</news:title>
+    </news:news>
+  </url>
+
 </urlset>

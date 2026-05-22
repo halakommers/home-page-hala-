@@ -64,25 +64,35 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white ${
-        isScrolled ? "shadow-md py-3 border-b border-border" : "py-5 border-b border-transparent"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "py-2.5" : "py-3 md:py-4"
       }`}
     >
-      <div className="container max-w-[1280px] mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex flex-col items-start gap-0 group" data-testid="link-logo">
-          <div className="flex items-center gap-1">
-            <span className="text-3xl font-extrabold text-primary tracking-tight leading-none group-hover:opacity-90 transition-opacity">هلا</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-accent mt-2"></span>
+      <div className="container max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div
+          className={`flex items-center justify-between rounded-xl px-3 sm:px-5 transition-all duration-300 ${
+            isScrolled
+              ? "brand-shell py-2"
+              : "bg-white/90 border border-border py-2.5 shadow-xs backdrop-blur-xl"
+          }`}
+        >
+        <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+            <span className="text-2xl font-bold leading-none group-hover:scale-105 transition-transform">a</span>
+            <span className="absolute -left-1 top-2 h-3 w-3 rounded-[2px] bg-accent"></span>
           </div>
-          <span className="text-[13px] font-bold text-accent tracking-wider leading-none">كوميرس</span>
+          <div className="flex flex-col leading-none">
+            <span className="text-[24px] font-bold text-primary tracking-normal group-hover:text-accent transition-colors">Hala</span>
+            <span className="text-[12px] font-bold text-accent tracking-normal">kommers</span>
+          </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <NavLinkItem
               key={link.name}
               link={link}
-              className="text-[15px] font-medium text-primary hover:text-accent transition-colors"
+              className="text-[14px] font-medium text-primary hover:text-accent hover:bg-secondary rounded-lg px-3 py-2 transition-colors"
               testId={`link-nav-${link.name}`}
             />
           ))}
@@ -90,15 +100,15 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a href={LOGIN_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 rounded-[10px] gap-2">
+            <Button variant="outline" className="border-primary/20 bg-white text-primary hover:bg-primary/5 rounded-lg gap-2 h-10">
               <LogIn size={15} />
               تسجيل الدخول
             </Button>
           </a>
           <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-start">
-            <Button className="bg-accent text-white hover:bg-accent/90 rounded-[10px] px-6 gap-2 shadow-md shadow-accent/20">
+            <Button className="conversion-button bg-accent text-white hover:bg-accent/90 rounded-lg px-5 gap-2 h-10">
               <Sparkles size={15} />
-              ابدأ مع هلا
+              افتح حساب بائع
             </Button>
           </a>
         </div>
@@ -106,7 +116,7 @@ export default function Navbar() {
         <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
             <button
-              className="md:hidden text-primary p-2 -mr-2 relative z-[60]"
+              className="md:hidden text-primary p-2.5 -ml-2 relative z-[60] rounded-lg bg-secondary border border-border"
               aria-label="فتح القائمة"
               data-testid="button-mobile-menu"
             >
@@ -115,15 +125,20 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-[85%] max-w-[340px] p-0 flex flex-col bg-white"
+            className="w-[85%] max-w-[340px] p-0 flex flex-col bg-background"
             dir="rtl"
           >
             <SheetHeader className="px-6 py-5 border-b border-border text-right">
               <SheetTitle asChild>
-                <div className="flex items-center gap-1 justify-start">
-                  <span className="text-2xl font-extrabold text-primary tracking-tight leading-none">هلا</span>
-                  <span className="w-2 h-2 rounded-full bg-accent mt-1.5"></span>
-                  <span className="text-[12px] font-bold text-accent tracking-wider mr-1">كوميرس</span>
+                <div className="flex items-center gap-3 justify-start">
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+                    <span className="text-2xl font-extrabold leading-none">a</span>
+                    <span className="absolute -left-1 top-2 h-3 w-3 rounded-[3px] bg-accent"></span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-extrabold text-primary leading-none">Hala</span>
+                    <span className="text-[11px] font-bold text-accent leading-none mt-1">kommers</span>
+                  </div>
                 </div>
               </SheetTitle>
             </SheetHeader>
@@ -157,7 +172,7 @@ export default function Navbar() {
               >
                 <Button className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl h-12 gap-2 shadow-md shadow-accent/20">
                   <Sparkles size={16} />
-                  سجّل الآن مجاناً
+                  افتح حساب بائع مجاناً
                 </Button>
               </a>
               <a
@@ -182,6 +197,7 @@ export default function Navbar() {
             </div>
           </SheetContent>
         </Sheet>
+        </div>
       </div>
     </header>
   );

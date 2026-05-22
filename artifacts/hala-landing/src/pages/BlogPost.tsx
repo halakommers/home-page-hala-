@@ -122,7 +122,7 @@ function BlogPostSEO({ post }: { post: NonNullable<ReturnType<typeof getPostBySl
   useSEO({
     title: post.title,
     description: post.excerpt,
-    keywords: `${post.category}, تجارة إلكترونية, خليج, هلا كوميرس`,
+    keywords: `${post.title}, ${post.subtitle}, ${post.category}, فولفيلمنت السعودية, تجارة إلكترونية الخليج, شحن السعودية, تخزين منتجات, COD السعودية, هلا كوميرس`,
     canonical: `/blog/${post.slug}`,
     ogType: "article",
     ogTitle: `${post.title} — هلا كوميرس`,
@@ -156,14 +156,12 @@ export default function BlogPost() {
   ];
 
   return (
-    <div dir="rtl" className="min-h-screen bg-white text-primary font-cairo">
+    <div dir="rtl" className="min-h-screen bg-background text-primary font-sans">
       <BlogPostSEO post={post} />
       <Navbar />
 
       {/* Hero */}
-      <section
-        className={`pt-32 pb-16 bg-gradient-to-br ${post.gradient} text-white relative overflow-hidden`}
-      >
+      <section className={`pt-32 pb-16 bg-gradient-to-br ${post.gradient} text-white relative overflow-hidden`}>
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -172,7 +170,19 @@ export default function BlogPost() {
             backgroundSize: "32px 32px",
           }}
         />
-        <div className="container max-w-[900px] mx-auto px-6 relative">
+        <motion.div
+          aria-hidden="true"
+          animate={{ y: [0, 14, 0], x: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+          className="absolute -right-20 top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+        />
+        <motion.div
+          aria-hidden="true"
+          animate={{ y: [0, -12, 0], x: [0, 12, 0] }}
+          transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
+          className="absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-accent/20 blur-3xl"
+        />
+        <div className="container max-w-[900px] mx-auto px-4 sm:px-6 relative">
           <div className="mb-6">
             <Breadcrumbs items={breadcrumbItems} light />
           </div>
@@ -190,10 +200,15 @@ export default function BlogPost() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block bg-white/15 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full mb-5">
+            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+              <motion.span
+                animate={{ scale: [1, 1.35, 1] }}
+                transition={{ repeat: Infinity, duration: 2.3, ease: "easeInOut" }}
+                className="h-1.5 w-1.5 rounded-full bg-accent"
+              />
               {post.category}
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-[1.25] mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold leading-[1.25] mb-4">
               {post.title}
             </h1>
             <p className="text-xl md:text-2xl text-white/85 font-medium leading-snug mb-7">
@@ -219,19 +234,25 @@ export default function BlogPost() {
       </section>
 
       {/* Article Body */}
-      <article className="py-16 md:py-20">
-        <div className="container max-w-[760px] mx-auto px-6">
+      <article className="py-14 md:py-20 bg-white">
+        <div className="container max-w-[760px] mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
             {post.content.map((block, idx) => renderBlock(block, idx))}
           </motion.div>
 
           {/* End-of-article CTA */}
-          <div className="mt-14 p-7 md:p-9 bg-gradient-to-br from-primary to-[#1E1A4D] rounded-3xl text-white text-center">
-            <h3 className="text-2xl md:text-3xl font-extrabold mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="mt-14 p-7 md:p-9 bg-primary rounded-2xl text-white text-center"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold mb-3">
               جاهز للخطوة التالية؟
             </h3>
             <p className="text-white/85 mb-6 leading-[1.85] max-w-md mx-auto">
@@ -239,49 +260,56 @@ export default function BlogPost() {
               فعلياً.
             </p>
             <a href="https://cal.com/hala-kommers-gcm087/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer" data-testid="button-article-cta">
-              <Button className="bg-accent hover:bg-accent/90 text-white font-bold rounded-[10px] px-8 py-6 text-base">
+              <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg px-8 py-6 text-base">
                 ابدأ مع هلا مجاناً
               </Button>
             </a>
-          </div>
+          </motion.div>
         </div>
       </article>
 
       {/* Other posts */}
       {otherPosts.length > 0 && (
-        <section className="py-16 bg-[#F8F6FC] border-t border-[#E8E5F2]">
-          <div className="container max-w-[1100px] mx-auto px-6">
-            <h3 className="text-2xl md:text-3xl font-extrabold mb-8 text-center">
+        <section className="py-14 md:py-16 bg-secondary border-t border-border">
+          <div className="container max-w-[1100px] mx-auto px-4 sm:px-6">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
               اقرأ أيضاً
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {otherPosts.map((other) => (
-                <Link
+                <motion.div
                   key={other.slug}
-                  href={`/blog/${other.slug}`}
-                  className="group block bg-white rounded-2xl border border-[#E8E5F2] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
-                  data-testid={`link-related-${other.slug}`}
+                  whileHover={{ y: -5 }}
                 >
-                  <div className="flex items-stretch">
-                    <div
-                      className={`w-32 flex-shrink-0 bg-gradient-to-br ${other.gradient} flex items-center justify-center text-5xl`}
-                    >
-                      {other.accentEmoji}
+                  <Link
+                    href={`/blog/${other.slug}`}
+                    className="group block brand-card rounded-2xl overflow-hidden transition-all"
+                    data-testid={`link-related-${other.slug}`}
+                  >
+                    <div className="flex items-stretch">
+                      <div className={`w-28 sm:w-32 flex-shrink-0 bg-gradient-to-br ${other.gradient} flex items-center justify-center text-5xl`}>
+                        <motion.span
+                          animate={{ y: [0, -5, 0], rotate: [0, 2, 0] }}
+                          transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+                        >
+                          {other.accentEmoji}
+                        </motion.span>
+                      </div>
+                      <div className="p-5 flex-1">
+                        <span className="text-xs font-bold text-accent">
+                          {other.category}
+                        </span>
+                        <h4 className="text-lg font-bold mt-1 mb-2 leading-snug group-hover:text-accent transition-colors">
+                          {other.title}
+                        </h4>
+                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary/70 group-hover:text-accent transition-colors">
+                          اقرأ المقال
+                          <ArrowLeft size={14} />
+                        </span>
+                      </div>
                     </div>
-                    <div className="p-5 flex-1">
-                      <span className="text-xs font-bold text-accent">
-                        {other.category}
-                      </span>
-                      <h4 className="text-lg font-extrabold mt-1 mb-2 leading-snug group-hover:text-accent transition-colors">
-                        {other.title}
-                      </h4>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary/70 group-hover:text-accent transition-colors">
-                        اقرأ المقال
-                        <ArrowLeft size={14} />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>

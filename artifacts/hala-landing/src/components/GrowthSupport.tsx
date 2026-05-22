@@ -1,36 +1,39 @@
 import { motion } from "framer-motion";
 import { Clock, LineChart, Paintbrush, Wallet } from "lucide-react";
+import CommerceBackdrop from "@/components/CommerceBackdrop";
+import { SIGNUP_URL } from "@/lib/links";
 
 export default function GrowthSupport() {
   const features = [
     {
       icon: Clock,
-      title: "تشغيل احترافي يحرّر وقتك",
-      desc: "تركّز على المنتج والتسويق، ونحن نتولى التنفيذ.",
+      title: "تشغيل يحرّر وقتك",
+      desc: "بدل متابعة كل طلب يدويًا، تتابع الأداء وتترك التفاصيل التشغيلية لفريق مختص.",
       color: "purple"
     },
     {
       icon: LineChart,
-      title: "دعم إعلاني (تيك توك وسناب شات)",
-      desc: "استشارة في إطلاق حملاتك على المنصات الأكثر تأثيراً في الخليج.",
+      title: "جاهزية أسرع للإعلانات",
+      desc: "حين تعرف أن المخزون والتأكيد والشحن جاهزين، يصبح اختبار الإعلانات أقل مخاطرة.",
       color: "orange"
     },
     {
       icon: Paintbrush,
-      title: "بناء البراند من الصفر",
-      desc: "هوية بصرية، تغليف، تجربة عميل — نساعدك تبني براند يبقى في ذاكرة العميل.",
+      title: "تجربة براند أفضل",
+      desc: "تغليف أوضح، متابعة أسرع، وعميل يستلم طلبه بصورة تليق باسم متجرك.",
       color: "purple"
     },
     {
       icon: Wallet,
-      title: "حلول دعم مالي للتوسع",
-      desc: "نوفّر مرونة في إدارة المخزون والتدفق النقدي تساعدك على التوسع بأمان.",
+      title: "تحصيل وتسويات أوضح",
+      desc: "رؤية أفضل للطلبات المسلّمة والتحصيل والمستحقات تساعدك تقرر متى تعيد الطلب ومتى توسع.",
       color: "orange"
     }
   ];
 
   return (
-    <section id="growth" className="relative py-16 md:py-32 bg-gradient-to-b from-white via-[#FBF9FE] to-white overflow-hidden">
+    <section id="growth" className="section-surface relative py-14 md:py-28 bg-gradient-to-b from-white via-[#FBF9FE] to-white">
+      <CommerceBackdrop variant="light" />
       {/* Background growth scene: rockets, sparkles, dotted arc */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Subtle dotted grid */}
@@ -203,11 +206,11 @@ export default function GrowthSupport() {
           </svg>
         </motion.div>
       </div>
-      <div className="container max-w-[1280px] mx-auto px-6 relative">
-        <div className="text-center mb-16">
-          <span className="text-accent font-bold text-[14px] tracking-wide mb-4 block">أكثر من مجرد تشغيل</span>
-          <h2 className="text-[28px] md:text-[44px] font-bold text-foreground leading-[1.2]">
-            هلا ليست خدمة تشغيل فقط — هلا منصة نمو
+      <div className="container max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 md:mb-14">
+          <span className="brand-pill inline-block text-primary font-semibold text-[14px] tracking-normal mb-4 rounded-full px-4 py-2">بعد التشغيل يأتي النمو</span>
+          <h2 className="text-[27px] md:text-[44px] font-bold text-foreground leading-[1.22] max-w-3xl mx-auto">
+            عندما يصبح التنفيذ ثابتًا، يصبح التوسع قرارًا أسهل
           </h2>
         </div>
 
@@ -219,7 +222,7 @@ export default function GrowthSupport() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="rounded-2xl p-8 border border-transparent hover:border-border hover:shadow-sm transition-all duration-300 flex flex-col h-full border-t-[#f2eded] border-r-[#f2eded] border-b-[#f2eded] border-l-[#f2eded] bg-[#ebebfc]"
+              className="brand-card rounded-2xl p-6 md:p-7 hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full"
             >
               <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 shadow-sm ${
                 feature.color === 'orange' ? 'bg-[#FFE8D9] text-accent' : 'bg-primary/10 text-primary'
@@ -232,8 +235,8 @@ export default function GrowthSupport() {
                 {feature.desc}
               </p>
               
-              <a href="#contact" className="text-accent font-bold text-[14px] flex items-center gap-1 hover:gap-2 transition-all mt-auto w-fit">
-                معرفة المزيد ←
+              <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer" className="text-accent font-bold text-[14px] flex items-center gap-1 hover:gap-2 transition-all mt-auto w-fit">
+                ابدأ تشغيل متجرك ←
               </a>
             </motion.div>
           ))}
