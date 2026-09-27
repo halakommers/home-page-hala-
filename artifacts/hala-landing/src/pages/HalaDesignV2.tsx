@@ -116,9 +116,15 @@ function Hero() {
     <section className="hv2-hero" id="home" aria-labelledby="hv2-title">
       <div className="hv2-hero-aura hv2-hero-aura-orange" />
       <div className="hv2-hero-aura hv2-hero-aura-indigo" />
+      <div className="hv2-hero-pattern hv2-hero-pattern-right" aria-hidden="true" />
+      <div className="hv2-hero-pattern hv2-hero-pattern-left" aria-hidden="true" />
       <div className="hv2-container hv2-hero-content">
+        <div className="hv2-orbit hv2-orbit-order" aria-hidden="true"><span className="hv2-orbit-icon"><ClipboardCheck size={27} /></span><span>الطلبات</span></div>
+        <div className="hv2-orbit hv2-orbit-stock" aria-hidden="true"><span className="hv2-orbit-icon"><Boxes size={27} /></span><span>المخزون</span></div>
+        <div className="hv2-orbit hv2-orbit-shipping" aria-hidden="true"><span className="hv2-orbit-icon"><Truck size={28} /></span><span>الشحن</span></div>
+        <div className="hv2-orbit hv2-orbit-settlement" aria-hidden="true"><span className="hv2-orbit-icon"><Wallet size={27} /></span><span>التحصيل</span></div>
         <Enter className="hv2-hero-copy">
-          <span className="hv2-eyebrow"><span /> منصة تشغيل تجارتك من أول المنتج لآخر تسوية</span>
+          <span className="hv2-eyebrow"><PackageCheck size={16} /> منصة تشغيل تجارتك من أول المنتج لآخر تسوية</span>
           <h1 id="hv2-title">كل طلب يبدأ فرصة.<br /><em>هلا تكمّل الرحلة.</em></h1>
           <p>التوريد، التخزين، تأكيد الطلبات، الشحن والتحصيل في مسار واحد واضح. أنت تركز على البيع، وإحنا نهتم بكل خطوة بعده.</p>
           <div className="hv2-actions">
@@ -148,14 +154,31 @@ function Hero() {
           />
         </svg>
         <motion.div className="hv2-hero-stage" initial={reduceMotion ? false : { opacity: 0, y: 55, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.05, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
-          <div className="hv2-hero-float hv2-hero-float-warehouse"><Warehouse size={22} /><span>المخزون جاهز</span></div>
           <div className="hv2-dashboard-window">
             <div className="hv2-window-top"><span className="hv2-window-dots"><i /><i /><i /></span><span>لوحة هلا كوميرس</span><span>seller.halakommers.com</span></div>
             <img src={overviewImage} alt="نظرة عامة على لوحة تحكم هلا كوميرس" loading="eager" />
           </div>
-          <div className="hv2-hero-float hv2-hero-float-delivery"><Truck size={22} /><span>الشحنة في الطريق</span></div>
         </motion.div>
         <div className="hv2-hero-footnote"><ShieldCheck size={16} /> تشغيل واحد يربط المنتج بالطلب والعميل</div>
+      </div>
+    </section>
+  );
+}
+
+function PartnerPreview() {
+  return (
+    <section className="hv2-partners" aria-label="تصور مبدئي لشريط الشركاء">
+      <div className="hv2-container hv2-partners-inner">
+        <div className="hv2-partners-copy">
+          <span>على طول الرحلة، فيه شركاء.</span>
+          <small>شعارات مبدئية للتصميم حتى اعتماد القائمة النهائية</small>
+        </div>
+        <div className="hv2-partners-logos" aria-label="أمثلة مرئية مؤقتة">
+          <span className="hv2-partner-logo hv2-partner-shopify">shopify</span>
+          <span className="hv2-partner-logo hv2-partner-salla">سلة<span className="hv2-partner-mark">◌</span></span>
+          <span className="hv2-partner-logo hv2-partner-woo">WooCommerce</span>
+          <span className="hv2-partner-logo hv2-partner-zid">زد<span className="hv2-partner-mark">◈</span></span>
+        </div>
       </div>
     </section>
   );
@@ -272,7 +295,7 @@ export default function HalaDesignV2() {
     <div className="hala-v2" dir="rtl">
       <div className="hv2-preview-note">معاينة اتجاه التصميم الجديد لهلا كوميرس</div>
       <Header />
-      <main><Hero /><Capabilities /><Journey /><Challenges /><FinalCta /></main>
+      <main><Hero /><PartnerPreview /><Capabilities /><Journey /><Challenges /><FinalCta /></main>
       <Footer />
     </div>
   );
