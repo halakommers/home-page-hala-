@@ -9,6 +9,8 @@ import ordersImage from "@/assets/dashboards/dash_10.16.16_lg.webp";
 import financeImage from "@/assets/dashboards/dash_10.16.33_lg.webp";
 import productsImage from "@/assets/dashboards/dash_10.17.57_lg.webp";
 import "./hala-design-v2.css";
+import OrderJourney3D from "./OrderJourney3D";
+import StickySignup from "./StickySignup";
 
 const capabilities = [
   {
@@ -35,14 +37,6 @@ const capabilities = [
     image: financeImage,
     alt: "واجهة التحصيل والمستحقات في لوحة هلا",
   },
-];
-
-const journey = [
-  { icon: Boxes, label: "التوريد", detail: "ابدأ بمنتج مناسب وسلسلة توريد واضحة." },
-  { icon: Warehouse, label: "التخزين", detail: "مخزونك جاهز للتجهيز وقت الطلب." },
-  { icon: PackageCheck, label: "الطلبات", detail: "تأكيد وتجهيز قبل خروج الشحنة." },
-  { icon: Truck, label: "التوصيل", detail: "تابع الشحنة حتى باب العميل." },
-  { icon: Wallet, label: "التحصيل", detail: "اعرف ما تم تحصيله وما ينتظر التسوية." },
 ];
 
 const challenges = [
@@ -96,7 +90,7 @@ function Header() {
         <Brand />
         <nav id="hv2-navigation" className={menuOpen ? "is-open" : ""} aria-label="التنقل الرئيسي">
           <a href="#capabilities" onClick={() => setMenuOpen(false)}>المنصة</a>
-          <a href="#journey" onClick={() => setMenuOpen(false)}>كيف نعمل</a>
+          <a href="#order-journey" onClick={() => setMenuOpen(false)}>كيف نعمل</a>
           <a href="#why-hala" onClick={() => setMenuOpen(false)}>ليه هلا</a>
         </nav>
         <div className="hv2-header-controls">
@@ -124,12 +118,12 @@ function Hero() {
         <div className="hv2-orbit hv2-orbit-shipping" aria-hidden="true"><span className="hv2-orbit-icon"><Truck size={28} /></span><span>الشحن</span></div>
         <div className="hv2-orbit hv2-orbit-settlement" aria-hidden="true"><span className="hv2-orbit-icon"><Wallet size={27} /></span><span>التحصيل</span></div>
         <Enter className="hv2-hero-copy">
-          <span className="hv2-eyebrow"><PackageCheck size={16} /> منصة تشغيل تجارتك من أول المنتج لآخر تسوية</span>
-          <h1 id="hv2-title">كل طلب يبدأ فرصة.<br /><em>هلا تكمّل الرحلة.</em></h1>
+          <span className="hv2-eyebrow"><PackageCheck size={16} /> من المنتج لآخر تسوية، كل خطوة أوضح</span>
+          <h1 id="hv2-title">كل طلب فرصة.<br /><em>هلا تكمّل الرحلة.</em></h1>
           <p>التوريد، التخزين، تأكيد الطلبات، الشحن والتحصيل في مسار واحد واضح. أنت تركز على البيع، وإحنا نهتم بكل خطوة بعده.</p>
           <div className="hv2-actions">
             <a className="hv2-button hv2-button-primary" href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">ابدأ مع هلا <ArrowLeft size={18} /></a>
-            <a className="hv2-button hv2-button-text" href="#journey">شوف طريقة العمل <ArrowLeft size={18} /></a>
+            <a className="hv2-button hv2-button-text" href="#order-journey">شوف رحلة الطلب <ArrowLeft size={18} /></a>
           </div>
         </Enter>
         <svg className="hv2-hero-flow" viewBox="0 0 960 90" preserveAspectRatio="none" aria-hidden="true">
@@ -206,32 +200,10 @@ function Capabilities() {
             </Enter>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function Journey() {
-  const reduceMotion = useReducedMotion();
-  return (
-    <section className="hv2-section hv2-journey" id="journey">
-      <div className="hv2-container hv2-journey-layout">
-        <Enter className="hv2-journey-copy">
-          <span className="hv2-kicker">من المنتج للعميل</span>
-          <h2>رحلة واحدة.<br /><em>من غير فجوات.</em></h2>
-          <p>بدل ما كل خطوة تعيش في مكان منفصل، هلا تجمع تشغيل التجارة في مسار تقدر تتابعه.</p>
-          <a className="hv2-inline-link" href={CAL_URL} target="_blank" rel="noopener noreferrer">خلينا نرسم رحلتك <ArrowUpLeft size={17} /></a>
+        <Enter className="hv2-capability-cta">
+          <p>لو شغلك كبر، خلّي المتابعة أوضح من أول طلب.</p>
+          <a href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">ابدأ مع هلا <ArrowLeft size={17} /></a>
         </Enter>
-        <div className="hv2-journey-steps">
-          <motion.span className="hv2-journey-progress" aria-hidden="true" initial={reduceMotion ? false : { scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.8, ease: [0.65, 0, 0.35, 1] }} />
-          {journey.map((step, index) => (
-            <Enter className="hv2-journey-step" key={step.label} delay={index * 0.08}>
-              <span className="hv2-step-marker"><step.icon size={21} /></span>
-              <div><strong>{step.label}</strong><p>{step.detail}</p></div>
-              <span className="hv2-step-number">0{index + 1}</span>
-            </Enter>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -278,7 +250,10 @@ function FinalCta() {
           <span className="hv2-kicker">خطوتك الجاية</span>
           <h2>خلّي وقتك للنمو.<br /><em>وشغّل تجارتك مع هلا.</em></h2>
           <p>شاركنا منتجك والسوق اللي تستهدفه، ونرتب معك مسار التشغيل المناسب.</p>
-          <a className="hv2-button hv2-button-primary" href={CAL_URL} target="_blank" rel="noopener noreferrer">تحدث مع فريق هلا <ArrowLeft size={18} /></a>
+          <div className="hv2-final-actions">
+            <a className="hv2-button hv2-button-primary" href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">ابدأ مع هلا <ArrowLeft size={18} /></a>
+            <a className="hv2-button hv2-button-text" href={CAL_URL} target="_blank" rel="noopener noreferrer">احجز مكالمة مع الفريق <ArrowLeft size={18} /></a>
+          </div>
         </Enter>
       </div>
     </section>
@@ -295,7 +270,8 @@ export default function HalaDesignV2() {
     <div className="hala-v2" dir="rtl">
       <div className="hv2-preview-note">معاينة اتجاه التصميم الجديد لهلا كوميرس</div>
       <Header />
-      <main><Hero /><PartnerPreview /><Capabilities /><Journey /><Challenges /><FinalCta /></main>
+      <main><Hero /><PartnerPreview /><OrderJourney3D /><Capabilities /><Challenges /><FinalCta /></main>
+      <StickySignup />
       <Footer />
     </div>
   );
