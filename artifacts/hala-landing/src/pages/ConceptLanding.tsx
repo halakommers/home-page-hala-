@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, Check, ChevronLeft, CircleCheck, Globe2, LayoutDashboard, MapPin, Package, PhoneCall, ShieldCheck, Sparkles, Truck, Warehouse, Wallet } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
@@ -21,7 +22,7 @@ const steps = [
   ["04", "نقفل الدورة", "نوضح المرتجعات والتحصيل والتسوية في لوحة واحدة."],
 ];
 
-function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   const reduce = useReducedMotion();
   return (
     <motion.div
