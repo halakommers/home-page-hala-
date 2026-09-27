@@ -32,7 +32,11 @@
 .hv2-header-action:hover { background: var(--hv2-orange); transform: translateY(-2px); }
 
 .hv2-hero { position: relative; padding: 190px 0 100px; overflow: hidden; background: #fff; }
-.hv2-hero::before { content: ""; position: absolute; inset: 0; opacity: .42; background-image: linear-gradient(rgba(54,41,118,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(54,41,118,.055) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(#000, transparent 82%); pointer-events: none; }
+.hv2-hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(54,41,118,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(54,41,118,.11) 1px, transparent 1px); background-size: 88px 88px; mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%); pointer-events: none; }
+.hv2-hero-pattern { position: absolute; z-index: 1; top: 155px; width: min(30vw, 440px); height: 690px; pointer-events: none; background-image: radial-gradient(circle, rgba(54,41,118,.32) 1.35px, transparent 2px); background-size: 24px 24px; }
+.hv2-hero-pattern-right { right: -40px; mask-image: linear-gradient(90deg, transparent, #000 80%); }
+.hv2-hero-pattern-left { left: -40px; top: 315px; background-image: radial-gradient(circle, rgba(241,90,36,.26) 1.35px, transparent 2px); mask-image: linear-gradient(90deg, #000 20%, transparent); }
+.hv2-hero-pattern::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 87px, rgba(54,41,118,.12) 87px 88px); }
 .hv2-hero-aura { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(65px); opacity: .55; pointer-events: none; }
 .hv2-hero-aura-orange { top: 20px; right: -280px; background: #ffecd9; animation: hv2AuraOrange 16s ease-in-out infinite alternate; }
 .hv2-hero-aura-indigo { top: 10px; left: -260px; background: #e6e2ff; animation: hv2AuraIndigo 19s ease-in-out infinite alternate; }
@@ -42,7 +46,14 @@
 .hv2-hero-copy { max-width: 800px; margin-inline: auto; text-align: center; }
 .hv2-eyebrow, .hv2-kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--hv2-indigo); font-size: 13px; font-weight: 700; }
 .hv2-eyebrow { padding: 8px 14px; border: 1px solid #e8e3f7; border-radius: 999px; background: rgba(255,255,255,.8); }
-.hv2-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--hv2-orange); box-shadow: 0 0 0 4px rgba(241,90,36,.14); }
+.hv2-eyebrow svg { flex: none; color: var(--hv2-orange); }
+.hv2-orbit { position: absolute; z-index: 4; display: grid; justify-items: center; gap: 8px; color: var(--hv2-deep); font-size: 11px; font-weight: 700; animation: hv2Float 7s ease-in-out infinite; }
+.hv2-orbit-icon { width: 68px; height: 68px; display: grid; place-items: center; border: 1px solid rgba(54,41,118,.13); border-radius: 23px 18px 24px 17px; color: var(--hv2-indigo); background: rgba(255,255,255,.92); box-shadow: 0 14px 30px rgba(45,38,105,.11), inset 0 0 0 6px rgba(247,246,252,.95); transform: rotate(-8deg); }
+.hv2-orbit-order { top: 52px; right: 25px; transform: rotate(7deg); }
+.hv2-orbit-stock { top: 120px; left: 36px; animation-delay: -2s; transform: rotate(-6deg); }
+.hv2-orbit-shipping { top: 345px; right: 65px; animation-delay: -3.5s; transform: rotate(-5deg); }
+.hv2-orbit-settlement { top: 360px; left: 60px; animation-delay: -1s; transform: rotate(6deg); }
+.hv2-orbit-shipping .hv2-orbit-icon, .hv2-orbit-settlement .hv2-orbit-icon { color: var(--hv2-orange); border-color: rgba(241,90,36,.17); background: #fff9f5; }
 .hv2-hero h1 { font-size: clamp(52px, 5.5vw, 82px); line-height: 1.22; letter-spacing: -.045em; margin: 27px 0 22px; font-weight: 700; }
 .hv2-hero h1 em, .hv2-section h2 em { color: var(--hv2-indigo); font-style: normal; }
 .hv2-hero-copy > p { max-width: 660px; margin: 0 auto 28px; color: var(--hv2-muted); font-size: 17px; line-height: 1.9; }
@@ -62,14 +73,21 @@
 .hv2-window-dots i:nth-child(2) { background: #f7b36a; }
 .hv2-window-dots i:nth-child(3) { background: #a59bd8; }
 .hv2-dashboard-window > img { display: block; width: 100%; height: auto; border-radius: 12px; }
-.hv2-hero-float { position: absolute; z-index: 3; display: flex; align-items: center; gap: 9px; padding: 12px 15px; border: 1px solid var(--hv2-border); border-radius: 999px; background: #fff; box-shadow: 0 15px 42px rgba(45,38,105,.14); color: var(--hv2-ink); font-size: 12px; font-weight: 700; animation: hv2Float 6s ease-in-out infinite; }
-.hv2-hero-float svg { color: var(--hv2-orange); }
-.hv2-hero-float-warehouse { top: 22%; right: -8px; }
-.hv2-hero-float-delivery { left: -13px; bottom: 15%; animation-delay: -3s; }
 .hv2-hero-footnote { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 25px; color: var(--hv2-muted); font-size: 12px; }
 .hv2-hero-footnote svg { color: var(--hv2-orange); }
 @keyframes hv2Float { 50% { transform: translateY(-9px); } }
 
+.hv2-partners { position: relative; padding: 12px 0 37px; background: #fff; }
+.hv2-partners-inner { display: flex; align-items: center; gap: 55px; padding-top: 28px; border-top: 1px solid var(--hv2-border); }
+.hv2-partners-copy { min-width: 245px; display: grid; gap: 5px; color: var(--hv2-deep); font-size: 13px; font-weight: 700; }
+.hv2-partners-copy small { color: #8a879a; font-size: 10px; font-weight: 400; }
+.hv2-partners-logos { min-width: 0; flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 22px; direction: ltr; }
+.hv2-partner-logo { color: #5d596f; white-space: nowrap; font-size: 22px; font-weight: 700; letter-spacing: -.04em; opacity: .72; }
+.hv2-partner-shopify { font-style: italic; }
+.hv2-partner-salla { font-size: 29px; }
+.hv2-partner-woo { font-family: Georgia, serif; font-size: 20px; font-style: italic; }
+.hv2-partner-zid { font-size: 27px; }
+.hv2-partner-mark { padding-inline-start: 3px; color: var(--hv2-orange); font-size: .7em; }
 .hv2-section { padding: 110px 0; }
 .hv2-section-intro { text-align: center; max-width: 730px; margin: 0 auto 52px; }
 .hv2-section h2 { margin: 15px 0 17px; font-size: clamp(37px, 4vw, 59px); line-height: 1.25; letter-spacing: -.03em; }
@@ -138,6 +156,11 @@
 @keyframes hv2IconBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes hv2CtaDrift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 
+@media (max-width: 1150px) {
+  .hv2-orbit-stock, .hv2-orbit-settlement { display: none; }
+  .hv2-orbit-order { right: 5px; }
+  .hv2-orbit-shipping { right: 8px; }
+}
 @media (max-width: 1000px) {
   .hv2-capability-grid { gap: 12px; }
   .hv2-capability h3 { font-size: 18px; }
@@ -155,6 +178,12 @@
   .hv2-menu-toggle { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--hv2-border); border-radius: 50%; background: #fff; color: var(--hv2-deep); cursor: pointer; }
   .hv2-header-action { font-size: 11px; min-height: 38px; }
   .hv2-hero { padding-top: 160px; padding-bottom: 75px; }
+  .hv2-hero-pattern { width: 38vw; opacity: .72; }
+  .hv2-orbit { display: none; }
+  .hv2-partners-inner { flex-direction: column; align-items: stretch; gap: 20px; }
+  .hv2-partners-copy { text-align: center; }
+  .hv2-partners-logos { justify-content: center; flex-wrap: wrap; gap: 14px 28px; }
+
   .hv2-hero h1 { font-size: clamp(39px,7.5vw,58px); }
   .hv2-hero-copy > p { font-size: 15px; }
   .hv2-hero-stage { margin-top: 40px; }
@@ -172,15 +201,24 @@
   .hv2-preview-note { font-size: 10px; }
   .hv2-hero { padding-top: 150px; }
   .hv2-hero h1 { font-size: 40px; line-height: 1.33; }
+  .hv2-hero::before { background-size: 64px 64px; }
+  .hv2-hero-pattern { top: 120px; height: 500px; width: 40vw; opacity: .65; }
+  .hv2-hero-pattern-left { top: 290px; }
+  .hv2-orbit-order, .hv2-orbit-shipping { display: grid; gap: 3px; font-size: 9px; }
+  .hv2-orbit-icon { width: 42px; height: 42px; border-radius: 15px; box-shadow: 0 8px 20px rgba(45,38,105,.12), inset 0 0 0 4px rgba(247,246,252,.95); }
+  .hv2-orbit-icon svg { width: 19px; height: 19px; }
+  .hv2-orbit-order { top: auto; bottom: 350px; right: 14px; }
+  .hv2-orbit-shipping { top: auto; bottom: 104px; right: auto; left: 14px; }
+
+  .hv2-partners { padding-bottom: 23px; }
+  .hv2-partner-logo { font-size: 17px; }
+  .hv2-partner-salla, .hv2-partner-zid { font-size: 22px; }
+
   .hv2-eyebrow { font-size: 11px; }
   .hv2-hero-flow { width: 90%; height: 44px; margin: 20px auto -8px; }
   .hv2-hero-stage { padding: 0 4px; margin-top: 28px; }
   .hv2-dashboard-window { border-radius: 14px; padding: 5px; }
   .hv2-window-top { height: 27px; font-size: 7px; }
-  .hv2-hero-float { font-size: 9px; padding: 8px 10px; gap: 5px; }
-  .hv2-hero-float svg { width: 15px; }
-  .hv2-hero-float-warehouse { right: -6px; top: -19px; }
-  .hv2-hero-float-delivery { left: -6px; bottom: -18px; }
   .hv2-hero-footnote { margin-top: 38px; font-size: 11px; }
   .hv2-section { padding: 78px 0; }
   .hv2-section h2 { font-size: 36px; }
