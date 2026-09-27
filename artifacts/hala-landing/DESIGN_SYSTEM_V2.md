@@ -15,15 +15,16 @@ Reference studied: https://easyconfirm.net/ (27 September 2026). The reference u
 
 The logo is src/assets/hala-logo.svg, extracted from the live Hala site. The v2 preview uses **Alexandria** at weights 400–700, following the chosen EasyConfirm type style; it is loaded by src/pages/hala-design-v2.css. The existing Hala site uses IBM Plex Sans Arabic, but v2 keeps Hala's own logo and colors.
 
-The content container is capped at 1200px. Desktop sections use 110px vertical padding, and the smallest layout uses 78px. Product panels use 24px corners; primary actions use pill corners. Layout breakpoints are 1000px, 760px, and 520px.
+The content container is capped at 1200px. The mobile preview is composed first at 390px: shorter hero copy, a focused dashboard crop, a 250px interactive scene, touch-sized stage controls, and a fixed signup action after the hero. The Three.js section and fixed action use mobile base rules and expand at 761px. The remaining v2 sections retain their existing responsive rules.
 
 ## Layout and components
 
 - A floating pill navigation bar leads to a centered headline and a real Hala dashboard image. The hero uses stronger side grids, indigo and orange dot fields, and four operational icon tiles around the copy; two are retained on small screens.
 - A provisional logo row shows sample commerce brands for layout review only. It is explicitly labeled as provisional until Hala approves its actual partner list.
 - Three product panels show orders, products, and finance screenshots from src/assets/dashboards/.
-- The process section uses a connected vertical route for sourcing, storage, orders, delivery, and collection.
+- The previous static process section is replaced by an interactive four-stage order route: order, preparation, shipping, and settlement. The scene renders a white parcel carrying the Hala logo and orange tape using Three.js. Four accessible buttons switch stages and update the explanation. The scene loads only near its section and pauses when offscreen.
 - One dark section groups operational problems with interactive tabs. Each tab switches the screenshot and explanation.
+- Signup is the primary action in the hero, interactive route, feature follow-up, closing panel, and fixed signup button. The fixed action appears when the hero leaves the viewport. Booking a call remains the secondary path in the header, route, and closing panel.
 - The closing action sits on a light branded surface. No borrowed pricing, customer counts, or testimonials are included.
 
 ## Motion
@@ -31,7 +32,7 @@ The content container is capped at 1200px. Desktop sections use 110px vertical p
 - Section content enters with a short fade and upward movement through Enter in src/pages/HalaDesignV2.tsx.
 - The hero dashboard enters once. A thin branded SVG path draws from left to right in 2.3 seconds; indigo and orange background auras drift on 19-second and 16-second cycles. The operational icon tiles float gently.
 - Product images lift slightly on hover, while the three feature icons move up by 3px on staggered six-second cycles.
-- The process route draws from top to bottom once when it enters view; its markers stay above the line.
+- The Three.js parcel moves to the selected station. It uses a static fallback when reduced motion is requested or WebGL cannot initialize.
 - The closing panel shifts its soft color wash across an 18-second cycle.
 - The problem panel fades between tab selections.
 - prefers-reduced-motion: reduce disables CSS motion, and Framer Motion entrances respect useReducedMotion.
