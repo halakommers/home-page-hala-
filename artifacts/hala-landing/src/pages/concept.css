@@ -77,7 +77,12 @@
 .concept-section h2 em, .concept-final h2 em { color: var(--c-purple); font-style: normal; }
 .concept-section-head p, .concept-dashboard-copy > p { font-size: 16px; line-height: 1.9; color: var(--c-muted); }
 .concept-services { background: radial-gradient(circle at 10% 73%,#FFF0E8,transparent 28%),radial-gradient(circle at 90% 18%,#f1ecff,transparent 25%),#FFFFFF; }
-.concept-service-wave { position: absolute; top: 47%; inset-inline: 0; height: 135px; background: linear-gradient(100deg,#362976 0 30%,#F15A24 30% 59%,#362976 59%); clip-path: polygon(0 21%,14% 0,42% 24%,64% 3%,84% 31%,100% 0,100% 74%,86% 100%,66% 81%,44% 100%,20% 78%,0 100%); }
+.concept-service-wave-reveal { position: absolute; top: 47%; left: 0; right: 0; height: 135px; overflow: hidden; pointer-events: none; }
+.concept-service-wave-mask { position: absolute; inset: 0; overflow: hidden; }
+.concept-service-wave { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(100deg,#362976 0 30%,#F15A24 30% 59%,#362976 59%); clip-path: polygon(0 21%,14% 0,42% 24%,64% 3%,84% 31%,100% 0,100% 74%,86% 100%,66% 81%,44% 100%,20% 78%,0 100%); }
+.concept-service-wave::after { content: ""; position: absolute; top: -30%; bottom: -30%; left: -25%; width: 36%; background: linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent); transform: skewX(-18deg); animation: conceptWaveShine 5.5s 2.2s ease-in-out infinite; animation-play-state: paused; }
+.concept-service-wave.is-visible::after { animation-play-state: running; }
+@keyframes conceptWaveShine { 0%, 12% { transform: translateX(0) skewX(-18deg); opacity: 0; } 22% { opacity: 1; } 58% { transform: translateX(365%) skewX(-18deg); opacity: 1; } 68%, 100% { transform: translateX(365%) skewX(-18deg); opacity: 0; } }
 .concept-service-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
 .concept-service-card { min-height: 260px; padding: 29px; background: rgba(255,255,255,.92); border: 1px solid #eeeaf7; border-radius: 30px; box-shadow: 0 25px 65px rgba(35,31,73,.065); backdrop-filter: blur(12px); transition: transform .35s, box-shadow .35s; }
 .concept-service-card:hover { transform: translateY(-8px) !important; box-shadow: 0 35px 75px rgba(35,31,73,.13); }
@@ -212,7 +217,7 @@
   .concept-section-head h2, .concept-dashboard h2 { font-size: 35px; }
   .concept-service-grid, .concept-story-grid, .concept-journey-grid { grid-template-columns: 1fr; }
   .concept-service-card { min-height: 215px; }
-  .concept-service-wave { height: 90px; }
+  .concept-service-wave-reveal { height: 90px; }
   .concept-dashboard-halo { width: 280px; height: 280px; }
   .concept-dashboard-badge { right: -6px; font-size: 9px; }
   .concept-feature-panel { border-radius: 20px; }
@@ -224,5 +229,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .concept *, .concept *::before, .concept *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .concept-service-wave-mask { clip-path: none !important; }
+  .concept-service-wave::after { display: none; }
 }
 
