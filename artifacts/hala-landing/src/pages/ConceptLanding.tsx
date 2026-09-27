@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, Check, ChevronLeft,
 import { useSEO } from "@/hooks/useSEO";
 import { CAL_URL, SIGNUP_URL } from "@/lib/links";
 import dashboard from "@/assets/dashboards/dash_10.15.55_lg.webp";
+import halaLogo from "@/assets/hala-logo.svg";
 import "./concept.css";
 
 const services = [
@@ -40,8 +41,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; 
 function Brand() {
   return (
     <a className="concept-brand" href="/concept" aria-label="هلا كوميرس - النموذج المبدئي">
-      <span className="concept-brand-mark" aria-hidden="true"><span /></span>
-      <span className="concept-brand-words"><strong>Hala</strong><small>kommers</small></span>
+      <img src={halaLogo} alt="Hala kommers" width="90" height="52" />
     </a>
   );
 }
@@ -183,7 +183,7 @@ export default function ConceptLanding() {
           <div className="concept-container">
             <Reveal className="concept-feature-panel">
               <div className="concept-feature-orb concept-feature-orb-one" /><div className="concept-feature-orb concept-feature-orb-two" />
-              <div className="concept-feature-graphic" aria-hidden="true"><div className="concept-feature-box concept-feature-box-back" /><div className="concept-feature-box concept-feature-box-front"><Package size={68} strokeWidth={1.2} /><span>HALA / KOMMERS</span></div></div>
+              <div className="concept-feature-graphic" aria-hidden="true"><div className="concept-feature-box concept-feature-box-back" /><div className="concept-feature-box concept-feature-box-front"><Package size={68} strokeWidth={1.2} /><img src={halaLogo} alt="" /></div></div>
               <div className="concept-feature-copy"><span className="concept-kicker">جهز مسار نموك</span><h2>خلّينا نهتم بالتفاصيل.<br /><em>وانت اهتم بالفرصة.</em></h2><p>حين تكون العمليات جاهزة، تقدر تختبر منتجًا جديدًا أو سوقًا جديدًا بثقة ووضوح أكبر.</p><a className="concept-button concept-button-light" href={CAL_URL} target="_blank" rel="noopener noreferrer">احجز مكالمة تشغيل <ArrowLeft size={18} /></a></div>
             </Reveal>
           </div>
@@ -209,3 +209,4 @@ export default function ConceptLanding() {
     </div>
   );
 }
+
