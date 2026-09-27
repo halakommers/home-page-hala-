@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, ChevronLeft, CircleCheck, Globe2, LayoutDashboard, Package, PhoneCall, ShieldCheck, Sparkles, Truck, Warehouse, Wallet } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
@@ -49,6 +49,7 @@ function Brand() {
 
 export default function ConceptLanding() {
   const reduce = useReducedMotion();
+  const [servicesVisible, setServicesVisible] = useState(false);
   const { scrollYProgress } = useScroll();
   const heroLift = useTransform(scrollYProgress, [0, 0.23], [0, -80]);
 
@@ -122,14 +123,34 @@ export default function ConceptLanding() {
               <h2>كل ما بعد البيع،<br /><em>في إيقاع واحد.</em></h2>
               <p>تشغيل متصل يخلي كل خطوة مفهومة، وكل قرار مبنيًا على ما يحدث فعلًا في طلباتك.</p>
             </Reveal>
-            <div className="concept-service-wave" aria-hidden="true" />
+            <motion.div
+              className="concept-service-wave-reveal"
+              aria-hidden="true"
+              onViewportEnter={() => setServicesVisible(true)}
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <motion.div
+                className="concept-service-wave-mask"
+                initial={reduce ? false : { clipPath: "inset(0 100% 0 0)" }}
+                animate={servicesVisible ? { clipPath: "inset(0 0% 0 0)" } : undefined}
+                transition={{ duration: 2.2, ease: [0.65, 0, 0.35, 1] }}
+              >
+                <div className={servicesVisible ? "concept-service-wave is-visible" : "concept-service-wave"} />
+              </motion.div>
+            </motion.div>
             <div className="concept-service-grid">
               {services.map((service, index) => (
-                <Reveal key={service.label} className="concept-service-card" delay={index * 0.07}>
+                <motion.div
+                  key={service.label}
+                  className="concept-service-card"
+                  initial={reduce ? false : { opacity: 0, y: 34 }}
+                  animate={servicesVisible ? { opacity: 1, y: 0 } : undefined}
+                  transition={{ duration: 0.7, delay: 1.2 + index * 0.14, ease: [0.22, 1, 0.36, 1] }}
+                >
                   <div className="concept-service-top"><span className="concept-service-icon"><service.icon size={27} strokeWidth={1.8} /></span><span className="concept-service-number">{service.label}</span></div>
                   <h3>{service.title}</h3><p>{service.text}</p>
                   <span className="concept-service-arrow"><ArrowUpLeft size={18} /></span>
-                </Reveal>
+                </motion.div>
               ))}
             </div>
           </div>
