@@ -219,6 +219,7 @@
   .hv2-capability-image { height: 190px; }
   .hv2-challenge-tab { min-height: 64px; font-size: 13px; }
   .hv2-challenge-image { height: 215px; }
+  .hv2-challenge-image img { width: 145%; max-width: none; }
   .hv2-final-panel { padding: 65px 20px; }
   .hv2-footer .hv2-container { flex-wrap: wrap; justify-content: center; text-align: center; }
 }
