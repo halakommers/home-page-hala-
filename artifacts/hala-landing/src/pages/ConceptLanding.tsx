@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, Check, ChevronLeft, CircleCheck, Globe2, LayoutDashboard, MapPin, Package, PhoneCall, ShieldCheck, Sparkles, Truck, Warehouse, Wallet } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, ChevronLeft, CircleCheck, Globe2, LayoutDashboard, Package, PhoneCall, ShieldCheck, Sparkles, Truck, Warehouse, Wallet } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import { CAL_URL, SIGNUP_URL } from "@/lib/links";
 import dashboard from "@/assets/dashboards/dash_10.15.55_lg.webp";
