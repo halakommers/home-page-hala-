@@ -102,7 +102,7 @@
 .hv2-journey-step { position: relative; display: flex; align-items: center; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--hv2-border); }
 .hv2-journey-step:last-child { border-bottom: 0; }
 .hv2-step-marker { position: relative; z-index: 1; width: 49px; height: 49px; display: grid; place-items: center; flex: none; border: 1px solid #e6e0f4; border-radius: 50%; background: #fff; color: var(--hv2-indigo); }
-.hv2-journey-step:nth-child(even) .hv2-step-marker { color: var(--hv2-orange); }
+.hv2-journey-step:nth-of-type(even) .hv2-step-marker { color: var(--hv2-orange); }
 .hv2-journey-step strong { font-size: 17px; }
 .hv2-journey-step p { color: var(--hv2-muted); font-size: 12px; margin: 4px 0 0; }
 .hv2-step-number { margin-inline-start: auto; font: 700 11px Arial,sans-serif; color: #a5a1b4; }
