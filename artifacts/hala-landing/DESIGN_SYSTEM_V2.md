@@ -19,7 +19,8 @@ The content container is capped at 1200px. Desktop sections use 110px vertical p
 
 ## Layout and components
 
-- A floating pill navigation bar leads to a centered headline and a real Hala dashboard image.
+- A floating pill navigation bar leads to a centered headline and a real Hala dashboard image. The hero uses stronger side grids, indigo and orange dot fields, and four operational icon tiles around the copy; two are retained on small screens.
+- A provisional logo row shows sample commerce brands for layout review only. It is explicitly labeled as provisional until Hala approves its actual partner list.
 - Three product panels show orders, products, and finance screenshots from src/assets/dashboards/.
 - The process section uses a connected vertical route for sourcing, storage, orders, delivery, and collection.
 - One dark section groups operational problems with interactive tabs. Each tab switches the screenshot and explanation.
@@ -28,7 +29,7 @@ The content container is capped at 1200px. Desktop sections use 110px vertical p
 ## Motion
 
 - Section content enters with a short fade and upward movement through Enter in src/pages/HalaDesignV2.tsx.
-- The hero dashboard enters once. A thin branded SVG path draws from left to right in 2.3 seconds; indigo and orange background auras drift on 19-second and 16-second cycles. The two operational labels float gently.
+- The hero dashboard enters once. A thin branded SVG path draws from left to right in 2.3 seconds; indigo and orange background auras drift on 19-second and 16-second cycles. The operational icon tiles float gently.
 - Product images lift slightly on hover, while the three feature icons move up by 3px on staggered six-second cycles.
 - The process route draws from top to bottom once when it enters view; its markers stay above the line.
 - The closing panel shifts its soft color wash across an 18-second cycle.
