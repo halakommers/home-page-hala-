@@ -189,6 +189,7 @@ function Capabilities() {
 }
 
 function Journey() {
+  const reduceMotion = useReducedMotion();
   return (
     <section className="hv2-section hv2-journey" id="journey">
       <div className="hv2-container hv2-journey-layout">
@@ -199,6 +200,7 @@ function Journey() {
           <a className="hv2-inline-link" href={CAL_URL} target="_blank" rel="noopener noreferrer">خلينا نرسم رحلتك <ArrowUpLeft size={17} /></a>
         </Enter>
         <div className="hv2-journey-steps">
+          <motion.span className="hv2-journey-progress" aria-hidden="true" initial={reduceMotion ? false : { scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.8, ease: [0.65, 0, 0.35, 1] }} />
           {journey.map((step, index) => (
             <Enter className="hv2-journey-step" key={step.label} delay={index * 0.08}>
               <span className="hv2-step-marker"><step.icon size={21} /></span>
