@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpLeft, Boxes, ChartNoAxesCombined, Check, ChevronLeft,
 import { useSEO } from "@/hooks/useSEO";
 import { CAL_URL, SIGNUP_URL } from "@/lib/links";
 import dashboard from "@/assets/dashboards/dash_10.15.55_lg.webp";
+import ordersDashboard from "@/assets/dashboards/dash_10.16.16_lg.webp";
 import halaLogo from "@/assets/hala-logo.svg";
 import "./concept.css";
 
@@ -89,26 +90,18 @@ export default function ConceptLanding() {
               <div className="concept-hero-proof"><ShieldCheck size={18} /><span>مصمم للبائعين الذين يريدون تشغيلًا واضحًا في أسواق الخليج</span></div>
             </Reveal>
 
-            <motion.div className="concept-hero-art" style={{ y: reduce ? 0 : heroLift }} aria-label="رسم توضيحي لرحلة الطلب من المستودع إلى العميل">
-              <div className="concept-art-orbit concept-art-orbit-one" />
-              <div className="concept-art-orbit concept-art-orbit-two" />
-              <div className="concept-art-sun" />
-              <div className="concept-art-spark concept-art-spark-one">✦</div>
-              <div className="concept-art-spark concept-art-spark-two">✦</div>
-              <motion.div className="concept-shipping-card" initial={reduce ? false : { opacity: 0, rotate: -15, y: 70 }} animate={{ opacity: 1, rotate: -8, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="concept-shipping-head"><span className="concept-shipping-logo"><Package size={20} /> Hala</span><span>HK — 2048</span></div>
-                <div className="concept-shipping-route"><span><Warehouse size={20} /> المستودع</span><span className="concept-shipping-line" /><span><MapPin size={20} /> العميل</span></div>
-                <div className="concept-shipping-bottom"><strong>رحلة طلب واضحة</strong><span>من أول خطوة حتى التحصيل</span></div>
-                <div className="concept-shipping-stamp"><CircleCheck size={18} /> جاهز للشحن</div>
+            <motion.div className="concept-hero-art" style={{ y: reduce ? 0 : heroLift }}>
+              <div className="concept-hero-halo" aria-hidden="true" />
+              <motion.div className="concept-hero-dashboard" initial={reduce ? false : { opacity: 0, y: 45, rotate: -3 }} animate={{ opacity: 1, y: 0, rotate: -3 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="concept-browser-bar"><i /><i /><i /><span>seller.halakommers.com</span></div>
+                <img src={dashboard} alt="لقطة حقيقية من لوحة تحكم هلا للطلبات والمخزون ومؤشرات الأداء" loading="eager" />
               </motion.div>
-              <motion.div className="concept-floating-tile concept-tile-top" initial={reduce ? false : { opacity: 0, x: 36, y: 20 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ delay: 0.55, duration: 0.75 }}>
-                <span className="concept-tile-icon"><Check size={18} /></span><span>تم تأكيد الطلب<small>الخطوة 03 / 06</small></span>
+              <motion.div className="concept-hero-operations" initial={reduce ? false : { opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.45, duration: 0.7 }}>
+                <strong>رحلة الطلب مع هلا</strong>
+                <div className="concept-hero-operation"><Warehouse size={19} /><span>المخزون جاهز</span><CircleCheck size={17} /></div>
+                <div className="concept-hero-operation"><Package size={19} /><span>الطلب اتجهّز</span><CircleCheck size={17} /></div>
+                <div className="concept-hero-operation"><Truck size={19} /><span>الشحنة في الطريق</span><span className="concept-hero-live-dot" /></div>
               </motion.div>
-              <motion.div className="concept-floating-tile concept-tile-bottom" initial={reduce ? false : { opacity: 0, x: -36, y: 20 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ delay: 0.75, duration: 0.75 }}>
-                <span className="concept-tile-icon orange"><Truck size={18} /></span><span>الشحنة في الطريق<small>تتبّع مباشر</small></span>
-              </motion.div>
-              <div className="concept-parcel concept-parcel-one" />
-              <div className="concept-parcel concept-parcel-two" />
             </motion.div>
           </div>
           <div className="concept-scroll-cue"><span>اكتشف أكثر</span><span className="concept-scroll-line" /></div>
@@ -157,7 +150,7 @@ export default function ConceptLanding() {
             </Reveal>
             <Reveal className="concept-dashboard-visual" delay={0.15}>
               <div className="concept-dashboard-halo" />
-              <div className="concept-dashboard-frame"><div className="concept-browser-bar"><i /><i /><i /><span>seller.halakommers.com</span></div><img src={dashboard} alt="لقطة من لوحة تحكم هلا كوميرس" loading="lazy" /></div>
+              <div className="concept-dashboard-frame"><div className="concept-browser-bar"><i /><i /><i /><span>seller.halakommers.com</span></div><img src={ordersDashboard} alt="لقطة من إدارة الطلبات داخل لوحة هلا كوميرس" loading="lazy" /></div>
               <div className="concept-dashboard-badge"><ChartNoAxesCombined size={19} /> كل تشغيلك في مكان واحد</div>
             </Reveal>
           </div>
@@ -183,7 +176,12 @@ export default function ConceptLanding() {
           <div className="concept-container">
             <Reveal className="concept-feature-panel">
               <div className="concept-feature-orb concept-feature-orb-one" /><div className="concept-feature-orb concept-feature-orb-two" />
-              <div className="concept-feature-graphic" aria-hidden="true"><div className="concept-feature-box concept-feature-box-back" /><div className="concept-feature-box concept-feature-box-front"><Package size={68} strokeWidth={1.2} /><img src={halaLogo} alt="" /></div></div>
+              <div className="concept-feature-graphic" aria-hidden="true">
+                <div className="concept-feature-route" />
+                <div className="concept-feature-stage"><Warehouse size={39} /><span>نستلم ونخزن</span></div>
+                <div className="concept-feature-stage"><Package size={39} /><span>نجهز الطلب</span></div>
+                <div className="concept-feature-stage"><Truck size={39} /><span>نوصل للعميل</span></div>
+              </div>
               <div className="concept-feature-copy"><span className="concept-kicker">جهز مسار نموك</span><h2>خلّينا نهتم بالتفاصيل.<br /><em>وانت اهتم بالفرصة.</em></h2><p>حين تكون العمليات جاهزة، تقدر تختبر منتجًا جديدًا أو سوقًا جديدًا بثقة ووضوح أكبر.</p><a className="concept-button concept-button-light" href={CAL_URL} target="_blank" rel="noopener noreferrer">احجز مكالمة تشغيل <ArrowLeft size={18} /></a></div>
             </Reveal>
           </div>
