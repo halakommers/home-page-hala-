@@ -29,6 +29,9 @@ The content container is capped at 1200px. Desktop sections use 110px vertical p
 
 - Section content enters with a short fade and upward movement through Enter in src/pages/HalaDesignV2.tsx.
 - The hero dashboard enters once. A thin branded SVG path draws from left to right in 2.3 seconds; indigo and orange background auras drift on 19-second and 16-second cycles. The two operational labels float gently.
+- Product images lift slightly on hover, while the three feature icons move up by 3px on staggered six-second cycles.
+- The process route draws from top to bottom once when it enters view; its markers stay above the line.
+- The closing panel shifts its soft color wash across an 18-second cycle.
 - The problem panel fades between tab selections.
 - prefers-reduced-motion: reduce disables CSS motion, and Framer Motion entrances respect useReducedMotion.
 
