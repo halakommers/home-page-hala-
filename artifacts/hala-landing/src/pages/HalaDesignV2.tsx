@@ -126,6 +126,27 @@ function Hero() {
             <a className="hv2-button hv2-button-text" href="#journey">شوف طريقة العمل <ArrowLeft size={18} /></a>
           </div>
         </Enter>
+        <svg className="hv2-hero-flow" viewBox="0 0 960 90" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="hv2-flow-gradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#362976" stopOpacity=".12" />
+              <stop offset="48%" stopColor="#362976" stopOpacity=".65" />
+              <stop offset="76%" stopColor="#F15A24" stopOpacity=".72" />
+              <stop offset="100%" stopColor="#F15A24" stopOpacity=".12" />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M0 63 C170 4 302 78 470 47 S744 11 960 55"
+            fill="none"
+            stroke="url(#hv2-flow-gradient)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+            initial={reduceMotion ? false : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2.3, delay: 0.45, ease: [0.65, 0, 0.35, 1] }}
+          />
+        </svg>
         <motion.div className="hv2-hero-stage" initial={reduceMotion ? false : { opacity: 0, y: 55, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.05, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
           <div className="hv2-hero-float hv2-hero-float-warehouse"><Warehouse size={22} /><span>المخزون جاهز</span></div>
           <div className="hv2-dashboard-window">
