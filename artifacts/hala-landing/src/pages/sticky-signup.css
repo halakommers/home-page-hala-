@@ -1,0 +1,32 @@
+.hv3-sticky-signup {
+  position: fixed;
+  z-index: 80;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  background: linear-gradient(transparent, rgba(255,255,255,.98) 26%);
+  pointer-events: none;
+}
+.hv3-sticky-signup a {
+  width: 100%;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 16px;
+  background: #f15a24;
+  box-shadow: 0 14px 34px rgba(241,90,36,.25);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  pointer-events: auto;
+}
+.hv3-sticky-signup a:focus-visible { outline: 3px solid #362976; outline-offset: 3px; }
+@media (min-width: 761px) {
+  .hv3-sticky-signup { right: auto; bottom: 22px; left: 22px; width: 170px; padding: 0; background: none; }
+  .hv3-sticky-signup a { min-height: 48px; border-radius: 999px; font-size: 12px; }
+}
+
+

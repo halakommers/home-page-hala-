@@ -2,6 +2,7 @@ import { Switch, Route, Router as WouterRouter } from "wouter";
 import { UIProvider } from "@/contexts/UIContext";
 import NotFound from "@/pages/not-found";
 import Landing from "@/pages/Landing";
+import HalaDesignV2 from "@/pages/HalaDesignV2";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import HelpCenter from "@/pages/HelpCenter";
@@ -9,6 +10,7 @@ import HelpCenter from "@/pages/HelpCenter";
 function Router() {
   return (
     <Switch>
+      <Route path="/concept" component={HalaDesignV2} />
       <Route path="/" component={Landing} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
@@ -29,3 +31,4 @@ function App() {
 }
 
 export default App;
+
