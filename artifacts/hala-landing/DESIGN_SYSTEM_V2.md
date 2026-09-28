@@ -15,14 +15,14 @@ Reference studied: https://easyconfirm.net/ (27 September 2026). The reference u
 
 The logo is src/assets/hala-logo.svg, extracted from the live Hala site. The v2 preview uses **Alexandria** at weights 400–700, following the chosen EasyConfirm type style; it is loaded by src/pages/hala-design-v2.css. The existing Hala site uses IBM Plex Sans Arabic, but v2 keeps Hala's own logo and colors.
 
-The content container is capped at 1200px. The mobile preview is composed first at 390px: shorter hero copy, a focused dashboard crop, a 250px interactive scene, touch-sized stage controls, and a fixed signup action after the hero. The Three.js section and fixed action use mobile base rules and expand at 761px. The remaining v2 sections retain their existing responsive rules.
+The content container is capped at 1200px. The mobile preview is composed first at 390px: shorter hero copy, a focused dashboard crop, a 300px operational storyboard, touch-sized stage controls, and a fixed signup action after the hero. The process storyboard and fixed action use mobile base rules and expand on wider screens. The remaining v2 sections retain their existing responsive rules.
 
 ## Layout and components
 
 - A floating pill navigation bar leads to a centered headline and a real Hala dashboard image. The hero uses stronger side grids, indigo and orange dot fields, and four operational icon tiles around the copy; two are retained on small screens.
 - A provisional logo row shows sample commerce brands for layout review only. It is explicitly labeled as provisional until Hala approves its actual partner list.
 - Three product panels show orders, products, and finance screenshots from src/assets/dashboards/.
-- The previous static process section is replaced by an interactive four-stage order route: order, preparation, shipping, and settlement. The scene renders a white parcel carrying the Hala logo and orange tape using Three.js. Four accessible buttons switch stages and update the explanation. The scene loads only near its section and pauses when offscreen.
+- The previous static process section is replaced by an interactive five-stage operational storyboard: stock, order confirmation, preparation and packing, shipping and delivery, and collection and settlement. Five accessible buttons switch between distinct scenes. Actual Hala dashboard screenshots anchor stock, orders, and finance; small CSS illustrations show packing and delivery. Each scene depicts an action specific to that stage.
 - One dark section groups operational problems with interactive tabs. Each tab switches the screenshot and explanation.
 - Signup is the primary action in the hero, interactive route, feature follow-up, closing panel, and fixed signup button. The fixed action appears when the hero leaves the viewport. Booking a call remains the secondary path in the header, route, and closing panel.
 - The closing action sits on a light branded surface. No borrowed pricing, customer counts, or testimonials are included.
@@ -32,7 +32,7 @@ The content container is capped at 1200px. The mobile preview is composed first 
 - Section content enters with a short fade and upward movement through Enter in src/pages/HalaDesignV2.tsx.
 - The hero dashboard enters once. A thin branded SVG path draws from left to right in 2.3 seconds; indigo and orange background auras drift on 19-second and 16-second cycles. The operational icon tiles float gently.
 - Product images lift slightly on hover, while the three feature icons move up by 3px on staggered six-second cycles.
-- The Three.js parcel moves to the selected station. It uses a static fallback when reduced motion is requested or WebGL cannot initialize.
+- The storyboard transitions between stages with short horizontal movement. Within a stage, inventory cards arrive, confirmation advances, a shipping label lands on the parcel, the delivery vehicle moves along the route, or settlement appears. Reduced-motion settings suppress these animations.
 - The closing panel shifts its soft color wash across an 18-second cycle.
 - The problem panel fades between tab selections.
 - prefers-reduced-motion: reduce disables CSS motion, and Framer Motion entrances respect useReducedMotion.
@@ -40,4 +40,5 @@ The content container is capped at 1200px. The mobile preview is composed first 
 ## Current route
 
 /concept renders HalaDesignV2 from src/App.tsx. The previous ConceptLanding.tsx and concept.css remain in the repository but are not routed.
+
 
