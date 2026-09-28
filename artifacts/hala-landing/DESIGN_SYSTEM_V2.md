@@ -22,7 +22,7 @@ The content container is capped at 1200px. The mobile preview is composed first 
 - A floating pill navigation bar leads to a centered headline and a real Hala dashboard image. The hero uses stronger side grids, indigo and orange dot fields, and four operational icon tiles around the copy; two are retained on small screens.
 - A provisional logo row shows sample commerce brands for layout review only. It is explicitly labeled as provisional until Hala approves its actual partner list.
 - Three product panels show orders, products, and finance screenshots from src/assets/dashboards/.
-- The previous static process section is replaced by an interactive five-stage operational storyboard: stock, order confirmation, preparation and packing, shipping and delivery, and collection and settlement. Five accessible buttons switch between distinct scenes. Actual Hala dashboard screenshots anchor stock, orders, and finance; small CSS illustrations show packing and delivery. Each scene depicts an action specific to that stage.
+- The previous static process section is replaced by an interactive five-stage operational storyboard: stock, order confirmation, preparation and packing, shipping and delivery, and collection and settlement. Five accessible buttons switch between distinct scenes. Actual Hala dashboard screenshots anchor stock, orders, and finance; small CSS illustrations show packing and delivery. Each scene depicts an action specific to that stage. The first scene mounts when the section enters view, so its motion is visible on arrival.
 - One dark section groups operational problems with interactive tabs. Each tab switches the screenshot and explanation.
 - Signup is the primary action in the hero, interactive route, feature follow-up, closing panel, and fixed signup button. The fixed action appears when the hero leaves the viewport. Booking a call remains the secondary path in the header, route, and closing panel.
 - The closing action sits on a light branded surface. No borrowed pricing, customer counts, or testimonials are included.
@@ -40,5 +40,6 @@ The content container is capped at 1200px. The mobile preview is composed first 
 ## Current route
 
 /concept renders HalaDesignV2 from src/App.tsx. The previous ConceptLanding.tsx and concept.css remain in the repository but are not routed.
+
 
 
