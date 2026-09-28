@@ -14,7 +14,7 @@ import {
 import productsImage from "@/assets/dashboards/dash_10.17.57_lg.webp";
 import ordersImage from "@/assets/dashboards/dash_10.16.16_lg.webp";
 import financeImage from "@/assets/dashboards/dash_10.16.33_lg.webp";
-import { CAL_URL, SIGNUP_URL } from "@/lib/links";
+import { CAL_URL } from "@/lib/links";
 import "./order-flow.css";
 
 const stages = [
@@ -323,14 +323,6 @@ export default function OrderFlow() {
               <h3>{stage.title}</h3>
               <p>{stage.detail}</p>
               <div className="hf-actions">
-                <a
-                  className="hv2-button hv2-button-primary"
-                  href={SIGNUP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ابدأ مع هلا <ArrowLeft size={18} />
-                </a>
                 <a
                   className="hf-secondary"
                   href={CAL_URL}
