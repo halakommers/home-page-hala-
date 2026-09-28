@@ -1,7 +1,11 @@
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
 import {
-  ArrowLeft,
+  AnimatePresence,
+  motion,
+  useInView,
+  useReducedMotion,
+} from "framer-motion";
+import {
   Boxes,
   Check,
   ClipboardCheck,
@@ -259,12 +263,15 @@ const visuals = [
 
 export default function OrderFlow() {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasEntered = useInView(sectionRef, { once: true, amount: 0.2 });
   const reduceMotion = useReducedMotion();
   const Visual = visuals[active];
   const stage = stages[active];
   return (
     <section
       className="hf-section"
+      ref={sectionRef}
       id="order-journey"
       aria-labelledby="hf-title"
       dir="rtl"
@@ -300,22 +307,24 @@ export default function OrderFlow() {
           <div className="hf-stage">
             <div className="hf-scene" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={active}
-                  className="hf-scene-inner"
-                  initial={
-                    reduceMotion ? false : { opacity: 0, x: 30, scale: 0.98 }
-                  }
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={
-                    reduceMotion
-                      ? undefined
-                      : { opacity: 0, x: -20, scale: 0.98 }
-                  }
-                  transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Visual />
-                </motion.div>
+                {hasEntered && (
+                  <motion.div
+                    key={active}
+                    className="hf-scene-inner"
+                    initial={
+                      reduceMotion ? false : { opacity: 0, x: 30, scale: 0.98 }
+                    }
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={
+                      reduceMotion
+                        ? undefined
+                        : { opacity: 0, x: -20, scale: 0.98 }
+                    }
+                    transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <Visual />
+                  </motion.div>
+                )}
               </AnimatePresence>
             </div>
             <div className="hf-explainer">
